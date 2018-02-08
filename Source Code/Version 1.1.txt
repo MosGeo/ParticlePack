@@ -1,0 +1,11 @@
+Changes:
+- Disabled surface area calculation pending calculation optimizations
+- Realistic grains calculations of the convex hull added to improve results.
+
+Fixes:
+- First a bug where fining and coarsening upward where switched.
+- Fining upward had a bug that resulted in a very small grain at the last depeosition step for the grain group.
+- Fixed a bug in coloring grains based on size.
+
+Addition:
+- PDF data is normalized automatically now to prevent issues.

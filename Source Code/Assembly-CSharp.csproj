@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LangVersion>4</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{66C2D702-B833-73A4-DB8F-631275483D01}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_3_0;UNITY_2017_3;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;CROSS_PLATFORM_INPUT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files/Unity 2017.3.0b11/Editor/Data/Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity 2017.3.0b11/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\CH\Constants.cs" />
+     <Compile Include="Assets\CH\ConvexHull.cs" />
+     <Compile Include="Assets\CH\ConvexHull\Collections.cs" />
+     <Compile Include="Assets\CH\ConvexHull\ConvexFace.cs" />
+     <Compile Include="Assets\CH\ConvexHull\ConvexHullAlgorithm.Initialize.cs" />
+     <Compile Include="Assets\CH\ConvexHull\ConvexHullAlgorithm.MainLoop.cs" />
+     <Compile Include="Assets\CH\ConvexHull\DataModel.cs" />
+     <Compile Include="Assets\CH\ConvexHull\MathHelper.cs" />
+     <Compile Include="Assets\CH\ConvexHull\ObjectManager.cs" />
+     <Compile Include="Assets\CH\face.cs" />
+     <Compile Include="Assets\CH\IVertex.cs" />
+     <Compile Include="Assets\CH\Triangulation.cs" />
+     <Compile Include="Assets\CH\Triangulation\DelaunayTrianglationInternal.cs" />
+     <Compile Include="Assets\CH\Triangulation\DelaunayTriangulation.cs" />
+     <Compile Include="Assets\CH\Triangulation\TriangulationCell.cs" />
+     <Compile Include="Assets\CH\Triangulation\VoronoiEdge.cs" />
+     <Compile Include="Assets\CH\Triangulation\VoronoiMesh.cs" />
+     <Compile Include="Assets\CH\vertex.cs" />
+     <Compile Include="Assets\LibNoise\Generator\Billow.cs" />
+     <Compile Include="Assets\LibNoise\Generator\Checker.cs" />
+     <Compile Include="Assets\LibNoise\Generator\Const.cs" />
+     <Compile Include="Assets\LibNoise\Generator\Cylinders.cs" />
+     <Compile Include="Assets\LibNoise\Generator\Perlin.cs" />
+     <Compile Include="Assets\LibNoise\Generator\RidgedMultifractal.cs" />
+     <Compile Include="Assets\LibNoise\Generator\Spheres.cs" />
+     <Compile Include="Assets\LibNoise\Generator\Voronoi.cs" />
+     <Compile Include="Assets\LibNoise\GradientPresets.cs" />
+     <Compile Include="Assets\LibNoise\ModuleBase.cs" />
+     <Compile Include="Assets\LibNoise\Noise2D.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Abs.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Add.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Blend.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Cache.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Clamp.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Curve.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Displace.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Exponent.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Invert.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Max.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Min.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Multiply.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Power.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Rotate.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Scale.cs" />
+     <Compile Include="Assets\LibNoise\Operator\ScaleBias.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Select.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Subtract.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Terrace.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Translate.cs" />
+     <Compile Include="Assets\LibNoise\Operator\Turbulence.cs" />
+     <Compile Include="Assets\LibNoise\Properties\AssemblyInfo.cs" />
+     <Compile Include="Assets\LibNoise\Utils.cs" />
+     <Compile Include="Assets\Resources\Containers\BottomOperations.cs" />
+     <Compile Include="Assets\Resources\Containers\BoxOperations.cs" />
+     <Compile Include="Assets\Resources\Containers\ContainerOperations.cs" />
+     <Compile Include="Assets\Resources\Containers\CylinderOperations.cs" />
+     <Compile Include="Assets\Resources\Grains\GrainOperations.cs" />
+     <Compile Include="Assets\Resources\Grains\RealisticOperations.cs" />
+     <Compile Include="Assets\Resources\Grains\SphereOperations.cs" />
+     <Compile Include="Assets\Scripts\Bed.cs" />
+     <Compile Include="Assets\Scripts\BuildWorld.cs" />
+     <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\DataSaver.cs" />
+     <Compile Include="Assets\Scripts\Distribution.cs" />
+     <Compile Include="Assets\Scripts\FileOperations.cs" />
+     <Compile Include="Assets\Scripts\Grain.cs" />
+     <Compile Include="Assets\Scripts\MeshOperations.cs" />
+     <Compile Include="Assets\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\Scripts\ParameterGroup.cs" />
+     <Compile Include="Assets\Scripts\Rock.cs" />
+     <Compile Include="Assets\Scripts\Shaker.cs" />
+     <Compile Include="Assets\Scripts\StlExporter.cs" />
+     <None Include="Assets\ParametersTest.txt" />
+     <None Include="Assets\Example.txt" />
+     <None Include="Assets\Parameters.txt" />
+     <None Include="Assets\LibNoise\COPYING.txt" />
+     <None Include="Assets\LibNoise\COPYING.LESSER.txt" />
+     <None Include="Assets\test.txt" />
+     <None Include="Assets\MonoDisperse.txt" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity 2017.3.0b11/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity 2017.3.0b11/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TestRunner">
+ <HintPath>C:/Program Files/Unity 2017.3.0b11/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>C:/Program Files/Unity 2017.3.0b11/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Timeline">
+ <HintPath>C:/Program Files/Unity 2017.3.0b11/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UIAutomation">
+ <HintPath>C:/Program Files/Unity 2017.3.0b11/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.GoogleAudioSpatializer">
+ <HintPath>C:/Program Files/Unity 2017.3.0b11/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>C:/Program Files/Unity 2017.3.0b11/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SpatialTracking">
+ <HintPath>C:/Program Files/Unity 2017.3.0b11/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Users/malibrah/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@0.0.18/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Users/malibrah/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@0.0.19/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Purchasing">
+ <HintPath>C:/Users/malibrah/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

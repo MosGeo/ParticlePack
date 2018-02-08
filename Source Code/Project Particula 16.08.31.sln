@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project Particula 16.08.31.CSharp", "Project Particula 16.08.31.CSharp.csproj", "{5CB9CF58-BBE7-3CE3-F1BB-9769E62A26EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project Particula 16.08.31.CSharp.Editor", "Project Particula 16.08.31.CSharp.Editor.csproj", "{CECB3198-C317-D41E-6040-37D985ACA98A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5CB9CF58-BBE7-3CE3-F1BB-9769E62A26EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CB9CF58-BBE7-3CE3-F1BB-9769E62A26EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CB9CF58-BBE7-3CE3-F1BB-9769E62A26EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CB9CF58-BBE7-3CE3-F1BB-9769E62A26EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CECB3198-C317-D41E-6040-37D985ACA98A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CECB3198-C317-D41E-6040-37D985ACA98A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CECB3198-C317-D41E-6040-37D985ACA98A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CECB3198-C317-D41E-6040-37D985ACA98A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
