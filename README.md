@@ -1,3 +1,4 @@
+
 Particula - Particle Pack Generator
 =====
 
@@ -23,5 +24,5 @@ The compiled version uses a parameter file to define the simulation parameters. 
 
 ## Published research studies using Particula
 
-
+Kerimov, A., Mavko, G., Mukerji, T., and Al Ibrahim, M. A., 2018, Mechanical trapping of particles in granular media: Physical Review E, in press.
 
