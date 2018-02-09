@@ -11,5 +11,7 @@ The software simulates the formation of three-dimensional packings of spherical 
     <img width=500 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/PolyExample.png" alt="Example of Grain Pack" title="Polydesperse Realistic Example"</img>
 </div>
 
+Hardware requirements depend on the desired number of particles in the packings generated. A typical laptop specification would be suitable for 5000-10000 particles. 
+
 
 
