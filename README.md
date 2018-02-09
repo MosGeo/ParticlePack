@@ -19,7 +19,7 @@ The compiled software was tested on multiple Windows 10 machines. To compile the
 
 ## Getting started
 
-The compiled version uses a parameter file to define the simulation parameters. 
+The compiled version uses a parameter file to define the simulation parameters. The source code can be ran inside Unity and the same parameters can be modified in the platform.
 
 ## Published research studies using Particula
 
