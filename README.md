@@ -5,12 +5,10 @@ Particula - Particle Pack Generator
     <img width=1000 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/Process.png" alt="Process" title="Particle Generation Process"</img>
 </div>
 
-• A discrete element method based particle simulator that is capable of modeling large scale three-dimensional packings of spherical and non-spherical (regular and irregular) particles.
-• The simulator can generate random, fining upward, and coarsening upward loose and dense packings. 
-• Porosity and coordination number characterization of the generated packings conforms to previous studies, both theoretical and experimental.
+The software simulates the formation of three-dimensional packings of spherical and non-spherical (regular and irregular) particles with prescribed size distributions. An efficient approach to create multiple realizations of non-spherical irregularly shaped particles using coherent noise modification of the spherical particle surface is introduced. The simulator generates loose and dense granular packings of prescribed shape and size distributions.
 
 <div align="center">
-    <img width=1000 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/PolyExample.png" alt="Example of Grain Pack" title="Polydesperse Realistic Example"</img>
+    <img width=500 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/PolyExample.png" alt="Example of Grain Pack" title="Polydesperse Realistic Example"</img>
 </div>
 
 
