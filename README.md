@@ -15,7 +15,7 @@ The software simulates the formation of three-dimensional packings of spherical 
 
 ## Requirements
 
-The compiled software was tested on multiple Windows 10 machines. To compile the source code Unity3D is required. Version 2017.1.3 is recommended. Hardware requirements depend on the desired number of particles in the packings generated. A typical laptop specification would be suitable for 5000-10000 particles. 
+The compiled software was tested on multiple Windows 10 machines. To compile the source code, [Unity3D](https://unity3d.com/) is required. Version 2017.1.3 is recommended. Hardware requirements depend on the desired number of particles in the packings generated. A typical laptop specification would be suitable for 5000-10000 particles. 
 
 ## Getting started
 
