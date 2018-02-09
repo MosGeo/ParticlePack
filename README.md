@@ -13,13 +13,13 @@ The software simulates the formation of three-dimensional packings of spherical 
     <img width=1000 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/PolyExample2.png" alt="Example of Grain Pack" title="Polydesperse Realistic Example"</img>
 </div>
 
-## Software Requirements
+## Requirements
 
-The compiled software was tested on multiple Windows 10 machines. To compile the source code Unity3D is required. Version 2017.1.3 is recommended.
+The compiled software was tested on multiple Windows 10 machines. To compile the source code Unity3D is required. Version 2017.1.3 is recommended. Hardware requirements depend on the desired number of particles in the packings generated. A typical laptop specification would be suitable for 5000-10000 particles. 
 
-## Hardware Requirements
+## Getting Started
 
-Hardware requirements depend on the desired number of particles in the packings generated. A typical laptop specification would be suitable for 5000-10000 particles. 
+## Published research studies using Particula
 
 
 
