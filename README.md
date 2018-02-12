@@ -26,3 +26,7 @@ The compiled version uses a parameter file to define the simulation parameters. 
 
 Kerimov, A., Mavko, G., Mukerji, T., and Al Ibrahim, M. A., 2018, Mechanical trapping of particles in granular media: Physical Review E, in press.
 
+## Acknowledgments
+
+We would like to thank the Stanford Rock Physics & Borehole Geophysics Project, Stanford Center for Reservoir Forecasting, and Saudi Aramco for their support and valuables discussions. We would also like to thank the Dean of School of Earth, Energy, and Environmental Sciences at Stanford University, Prof. Steve Graham, for funding.
+
