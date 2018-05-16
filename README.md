@@ -20,7 +20,7 @@ The compiled software was tested on multiple Windows 10 machines. To compile the
 
 ## Getting started
 
-The compiled version uses a parameter file to define the simulation parameters. The source code can be ran inside Unity and the same parameters can be modified in the platform. Please check the [Wiki Page] (https://github.com/MosGeo/ParticlePack/wiki) for detailed information.
+The compiled version uses a parameter file to define the simulation parameters. The source code can be ran inside Unity and the same parameters can be modified in the platform. Please check the [Wiki Page](https://github.com/MosGeo/ParticlePack/wiki) for detailed information.
 
 ## Are you using this package? Want to provide feedback?
 If you are using this package. I would love to hear from you on how you use and what sort of modification that you would like to be seen. You can either create an Issue on Github or send me an email directly at Mustafa.Geoscientist@outlook.com
