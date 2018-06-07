@@ -106,10 +106,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 611, y: 471}
-  m_MaxSize: {x: 18006, y: 14042}
+  m_MinSize: {x: 607, y: 471}
+  m_MaxSize: {x: 18002, y: 14042}
   vertical: 0
-  controlID: 44
+  controlID: 9
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,10 +130,10 @@ MonoBehaviour:
     y: 0
     width: 1241
     height: 947
-  m_MinSize: {x: 336, y: 471}
-  m_MaxSize: {x: 14006, y: 14042}
+  m_MinSize: {x: 332, y: 471}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 1
-  controlID: 45
+  controlID: 10
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 304, y: 200}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 46
+  controlID: 11
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -230,10 +230,10 @@ MonoBehaviour:
     y: 611
     width: 1241
     height: 336
-  m_MinSize: {x: 336, y: 271}
-  m_MaxSize: {x: 14006, y: 10021}
+  m_MinSize: {x: 332, y: 271}
+  m_MaxSize: {x: 14002, y: 10021}
   vertical: 0
-  controlID: 71
+  controlID: 48
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -277,8 +277,8 @@ MonoBehaviour:
     y: 0
     width: 703
     height: 336
-  m_MinSize: {x: 104, y: 121}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -416,9 +416,9 @@ MonoBehaviour:
     height: 590
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 1afcffff00000000
+    m_SelectedIDs: 88290000
+    m_LastClickedID: 10632
+    m_ExpandedIDs: 64f6ffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -502,9 +502,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0.06356086, y: 0.8210733, z: -0.09326194, w: 0.55956256}
   m_Size:
-    m_Target: 21.493343
+    m_Target: 20.27801
     speed: 2
-    m_Value: 21.493343
+    m_Value: 20.27801
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -585,15 +585,13 @@ MonoBehaviour:
   m_LastFolders:
   - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\malibrah\OneDrive\Stanford\Project Cella\Papers\Efficient
-    Generator of Realistic Digital Grain Packs\Codes and Software\Project Particula
-    17.11.30
+  m_LastProjectPath: C:\Users\malibrah\Documents\GitHub\ParticlePack\Source Code
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 10}
-    m_SelectedIDs: d0260000
-    m_LastClickedID: 9936
-    m_ExpandedIDs: 00000000d02600001427000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 30290000
+    m_LastClickedID: 10544
+    m_ExpandedIDs: 00000000302900005a29000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -621,7 +619,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d026000014270000
+    m_ExpandedIDs: 00000000302900005a290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -648,7 +646,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 2423000026230000ba1c00000a1d00001a260000b4250000a03d0000e03d0000141c0000863c0000fc1c0000b21c00006073faff1c1c00005e1c00002a1d0000fa200000caeefeffca1c0000e0040000ec040000881c00007e1c0000861c0000961c0000801c00008a1c0000161d000084210000ac1d000008050000100500000e050000001c0000fe1b0000501c00001e05000026050000dc040000e6040000101c0000e40400001a1c0000181c0000121c0000682200005e220000cc21000012220000e62100000605000032220000022200008422000086220000ce230000e4230000d823000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -728,7 +726,7 @@ MonoBehaviour:
     y: 92
     width: 677
     height: 926
-  m_ScrollPosition: {x: 0, y: 0}
+  m_ScrollPosition: {x: 0, y: 891.9551}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 234

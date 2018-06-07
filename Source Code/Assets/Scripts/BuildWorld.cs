@@ -343,9 +343,13 @@ public class BuildWorld : MonoBehaviour {
 
         string folderPath = FileOperations.GetApplicationDirectory();
         string parameterFilePath = folderPath + configFileName;
+
+        uiText.GetComponent<UnityEngine.UI.Text>().text = parameterFilePath;
+
+
         ParameterGroup configFile = new ParameterGroup(parameterFilePath);
 
-        //uiText.GetComponent<UnityEngine.UI.Text>().text = parameterFilePath;
+
 
         // Project
         projectNotes = configFile.getString("Notes");
@@ -427,9 +431,8 @@ public class BuildWorld : MonoBehaviour {
                     grains[grainGroupNumber].bounceCombine = configFile.getEnum<PhysicMaterialCombine>("Bed " + bedNumberOne + " Grain " + grainGroupNumberOne + " Bounce Combine");
                     grains[grainGroupNumber].colorType = configFile.getEnum<Grain.GrainColorType>("Bed " + bedNumberOne + " Grain " + grainGroupNumberOne + " Color Type");
                     grains[grainGroupNumber].baseColor = configFile.getColor("Bed " + bedNumberOne + " Grain " + grainGroupNumberOne + " Base Color");
+                    grains[grainGroupNumber].secondaryColor = configFile.getColor("Bed " + bedNumberOne + " Grain " + grainGroupNumberOne + " Secondary Color");
                     grains[grainGroupNumber].scale = configFile.getVector3("Bed " + bedNumberOne + " Grain " + grainGroupNumberOne + " Scale");
-
-
 
                 }
 
@@ -547,7 +550,7 @@ public class BuildWorld : MonoBehaviour {
                 rawData.AppendLine("Bed " + bedNumberOne + " Grain " + grainGroupNumberOne + " " + "Color Type" + " = " + grain.colorType.ToString());
                 rawData.AppendLine("Bed " + bedNumberOne + " Grain " + grainGroupNumberOne + " " + "Base Color" + " = " + "[" + 255*grain.baseColor.r + " " + 255*grain.baseColor.g + " " + 255*grain.baseColor.b + " " + 255*grain.baseColor.a + "]");
                 rawData.AppendLine("Bed " + bedNumberOne + " Grain " + grainGroupNumberOne + " " + "Secondary Color" + " = " + "[" + 255 * grain.secondaryColor.r + " " + 255 * grain.secondaryColor.g + " " + 255 * grain.secondaryColor.b + " " + 255 * grain.secondaryColor.a + "]");
-                rawData.AppendLine("Bed " + bedNumberOne + " Grain " + grainGroupNumberOne + " " + "Scale" + " = " + grain.scale.ToString());
+                rawData.AppendLine("Bed " + bedNumberOne + " Grain " + grainGroupNumberOne + " " + "Scale" + " = " + "[" + grain.scale.x + " " + grain.scale.y + " " + grain.scale.z + "]");
 
             }
 
