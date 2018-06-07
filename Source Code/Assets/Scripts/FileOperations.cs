@@ -41,9 +41,9 @@ public static class FileOperations  {
         //{
         //   path += "/../../";
         //}
-        //else if (Application.platform == RuntimePlatform.WindowsPlayer)
+        //if (Application.platform == RuntimePlatform.WindowsPlayer)
         //{
-        //  path += "/../";
+        //path += "/../";
         //}
 
         //path = path.Replace("/", "\\");

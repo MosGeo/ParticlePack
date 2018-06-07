@@ -344,7 +344,7 @@ public class BuildWorld : MonoBehaviour {
         string folderPath = FileOperations.GetApplicationDirectory();
         string parameterFilePath = folderPath + configFileName;
 
-        uiText.GetComponent<UnityEngine.UI.Text>().text = parameterFilePath;
+        //uiText.GetComponent<UnityEngine.UI.Text>().text = parameterFilePath;
 
 
         ParameterGroup configFile = new ParameterGroup(parameterFilePath);
@@ -366,7 +366,7 @@ public class BuildWorld : MonoBehaviour {
 
         // Simulation
         FixedDeltaTime = configFile.getFloat("Fixed Delta Time");
-        SolverIterationCount = configFile.getInteger("Solver Iteratoin Count");
+        SolverIterationCount = configFile.getInteger("Solver Iteration Count");
         velocitySolverIterationCount = configFile.getInteger("Velocity Solver Iteration Count");
         SleepThreshold = configFile.getFloat("Sleep Threshold");
         BounceThreshold = configFile.getFloat("Bounce Threashold");
@@ -480,7 +480,7 @@ public class BuildWorld : MonoBehaviour {
         // Simulation Parameters
         rawData.AppendLine("- Simulation Parameters");
         rawData.AppendLine("Fixed Delta Time" + " = " + FixedDeltaTime);
-        rawData.AppendLine("Solver Iteratoin Count" + " = " + SolverIterationCount);
+        rawData.AppendLine("Solver Iteration Count" + " = " + SolverIterationCount);
         rawData.AppendLine("Velocity Solver Iteration Count" + " = " + velocitySolverIterationCount);
         rawData.AppendLine("Sleep Threshold" + " = " + SleepThreshold);
         rawData.AppendLine("Bounce Threashold" + " = " + BounceThreshold);
