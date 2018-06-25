@@ -1,0 +1,231 @@
+Getting Started with Particula
+
+1. Introduction
+2. Running the executable
+3. Modifying and compiling the source code
+4. Parameter files
+5. Keyboard shortcuts
+6. Tips and tricks
+7. Contact
+8. Acknowledgments
+9. License
+
+========================================================================================
+
+1. Introduction:
+
+
+The software simulates the formation of three-dimensional packings of spherical and non-spherical (regular and irregular) particles with prescribed size distributions. An efficient approach to create multiple realizations of non-spherical irregularly shaped particles using coherent noise modification of the spherical particle surface is introduced. The simulator generates loose and dense granular packings of prescribed shape and size distributions.Most users can use the executable to generate grain packs without the need to deal with the source code. The source code can be used to modify the algorithms used and extend the capabilities of Particula. Hardware requirements depend on the desired number of particles in the packings generated. A typical laptop specification would be suitable for 5000-10000 particles.
+
+========================================================================================
+
+2. Running the executable:
+
+The executable can be ran using “Particula.exe” in the “Executable” folder. The parameter file can be modified for the simulation is located in the “Particula_Data” folder. The parameters are defined below. Keyboard shortcut can be used to interactively control the simulation. The shortcuts are defined below. PDF files can be added or modified to define the grain size distribution. They are located in the "PDFs" folder. We suggest the use of NotePad++ to modify the parameter file and the PDF files.
+
+========================================================================================
+
+3. Modifying and compiling the source code:
+
+The code has to be compiled in Unity. We recommend downloading version 2017.1 (https://unity3d.com/) until further notice as we noticed some collision detection issues with newer versions. Installation of Unity is straight forward. No optional modules are required. Along with familiarity with C#, which is the scripting language in unity, it is highly recommended that you have some familiarly of the basics of Unity before modifying the code. We recommend going through the Roll a Ball and Space Shooter tutorials.
+
+========================================================================================
+
+Parameter files:
+
+If the executable is used, a parameter file is used to provide the input to the simulator. A parameter file is already included with the executable as an example. Below is an explanation of the parameters in the file.
+
+ -------------------------------------------- Container Parameters --------------------------------------------
+| Parameter                  | Explanation                                      | Value type       | Example         |
+| ---------------------------|:-------------------------------------------------|:-----------------|:----------------|
+| Container Type             | Geometry description                             | Box/Cylinder     | Box             |
+| Container Scale            | Size in x, y, and z                              | 3D Vector        | [5 5 5]         |
+| Container Dynamic Friction | Dynamic friction (0: no friction)                | Scaler           | 0.6             |
+| Container Static Friction  | Static friction (0: no friction)                 | Scaler           | 0.6             |
+| Container Bounciness       | Coefficient of restitution (0: in elastic)       | Scaler (fraction)| 0.3             |
+| Modify Scale Automatically | Resize the container based on the grain volume   | Boolean          | True            |
+| Estimated Porosity         | Estimated porosity used in automatic rescaling   | Scaler (fraction)| 0.45            |
+| Buffer Length              | Edge to exclude in the deposition                | Scaler (fraction)| 0.1             |
+
+-------------------------------------------- Simulation Parameters --------------------------------------------
+| Parameter                       | Explanation                                         | Value type       | Example    |
+| --------------------------------|:----------------------------------------------------|:-----------------|:-----------|
+| Fixed Delta Time                | Delta time for PDE solver                           | Scaler           | 0.01       |
+| Solver Iteratoin Count          | Maximum number of iteration for solver              | Scaler (integer) | 20         |
+| Velocity Solver Iteration Count | Maximum number of iteration for velocity solver     | Scaler           | 0.6        |
+| Sleep Threshold                 | Minimum energy for a grain to be included in solver | Scaler           | 0.6        |
+| Bounce Threshold                | Minimum velocity for grains to bounce of each other | Scaler           | 20         |
+| Time Scale                      | Increase simulation speed (does not effect solver)  | Scaler           | 3          |
+| Target Frame Rate               | Target frame rate                                   | Scaler (integer) | 30         |
+| Contact Offset                  | Grains distance collision is activiated             | Scaler           | 0.01       |
+
+-------------------------------------------- Shaking Parameters --------------------------------------------
+| Parameter                       | Explanation                                         | Value type       | Example    |
+| --------------------------------|:----------------------------------------------------|:-----------------|:-----------|
+| Shake Transversly               | Activate/deactivate transverse shaking              | Boolean          | False      |
+| Shake Rotationally              | Activate/deactivate rotational shaking              | Boolean          | False      |
+| Stabilize Camera                | Stabilize camera while shaking                      | Boolean          | True       |
+| Shaking Fraction                | Fraction with respect to radius (higher: more shake)| Scaler (fraction)| 0.001      |
+| Shaking Rotation Fraction       | Fraction with respect to Angle (higher: more shake) | Scaler (fraction)| 0.001      |
+
+-------------------------------------------- Folders Parameters --------------------------------------------
+| Parameter                       | Explanation                                         | Value type       | Example    |
+| --------------------------------|:----------------------------------------------------|:-----------------|:-----------|
+| Project Folder Path             | Folder path for PDFs and Output folder will be      | String           | ./         |
+| PDF Folder Name                 | PDF Folder name  (inside the project folder)        | String           | PDFs       |
+| Save Folder Name                | Folder name (inside the project folder)             | String           | Sim1       |
+| Create New Folder Automatically | Whether to create the save folder automatically     | Boolean          | True       |
+| Override Output Folder          | Whether to override the save folder if full         | Boolean          | True       |
+
+-------------------------------------------- Particle Groups --------------------------------------------
+| Parameter                       | Explanation                                         | Value type       | Example    |
+| --------------------------------|:----------------------------------------------------|:-----------------|:-----------|
+| Use Volume Proportion           | Whether the PDFs define # of particles or volume    | Boolean          | False      |
+| Grain Count Goal                | Total number of grains in the simulation            | Integer          | 1000       |
+| Number of Beds                  | Number of beds simulated                            | Integer          | 1          |
+
+-------------------------------------------- Bed x --------------------------------------------
+| Parameter                        | Explanation                                         | Value type       | Example    |
+| ---------------------------------|:----------------------------------------------------|:-----------------|:-----------|
+| Bed x Name                       | Name                                                | String           | Bed 1      |
+| Bed x Proportion                 | Proportion of all beds                              | Scaler (fraction)| 0.5        |
+| Bed x Wait After Deposition      | Wait after depostion to let grains settle           | Scaler           | 10         |
+| Bed x Cement After Deposition    | Stop grains from movement after depostion           | Boolean          | False      |
+| Bed x Disappear After Deposition | Grains disappear after depostion (still saved)      | Boolean          | False      |
+
+-------------------------------------------- Bed x Grain y --------------------------------------------
+| Parameter                             | Explanation                                 | Value type       | Example       |
+|---------------------------------------|:--------------------------------------------|:-----------------|:--------------|
+| Bed x Grain y Name                    | Name                                        | String           | Bed 1         |
+| Bed x Grain y Type                    | Grain type                                  | Sphere/Realistic | Sphere        |
+| Bed x Grain y Parameters              | Parameters related to realistic grains      | String           | (see below)   |
+| Bed x Grain y PDF                     | PDF file name used for this grain group     | String           | Mono          |
+| Bed x Grain y PDF Multiplier          | Quick operation on PDF grain size: multiply | Scaler           | 1             |
+| Bed x Grain y PDF Offset              | Quick operation on PDF grain size: add      | Scaler           | 0             |
+| Bed x Grain y Exact Vertical Creation | Grains created at exactly the same heights? | Boolean          | False         |
+| Bed x Grain y Disappear At Bottom     | Grains disappear if they hit the bottom     | Boolean          | False         |
+| Bed x Grain y Proportion              | Proportion of all grain group in this bed   | Scaler (fraction)| 0.6           |
+| Bed x Grain y Deposition Type         | Fining Upward, Coarsening upward, or Random | (FU, CU, Random) | Fining Upward |
+| Bed x Grain y Dynamic Friction        | Dynamic friction (0: no friction)           | Scaler           | 0.6           |
+| Bed x Grain y Static Friction         | Static friction (0: no friction)            | Scaler           | 0.6           |
+| Bed x Grain y Bounciness              | Coefficient of restitution (0: in elastic)  | Scaler           | 0.2           |
+| Bed x Grain y Friction Combine        | Average, Minimum, Maximum, Multiply         | (Selection)      | Average       |
+| Bed x Grain y Bounce Combine          | Average, Minimum, Maximum, Multiply         | (Selection)      | Average       |
+| Bed x Grain y Color Type              | Size, Base, Secondary, Random               | (Selection)      | Size          |
+| Bed x Grain y Base Color              | First color in RGB (0-255)                  | 3D Vector        | [255 128 0]   |
+| Bed x Grain y Secondary Color         | Coefficient of restitution (0: in elastic)  | 3D Vector        | [255 128 0]   |
+
+
+-------------------------------------------- Deposition Parameters --------------------------------------------
+| Parameter                       | Explanation                                         | Value type       | Example    |
+| --------------------------------|:----------------------------------------------------|:-----------------|:-----------|
+| Automatic Deposition            | Deposit grains automatically                        | Boolean          | True       |
+| Deposition Rate Per Sec         | Number of grains created per seconds                | Scaler           | 10         |
+| Save Rock Automatically         | Save the data automatically after deposition        | Boolean          | False      |
+| Save Data File                  | Save meta data when saving is activated             | Boolean          | True       |
+| Save Rock File                  | Save mesh data for the whole grain pack             | Boolean          | True       |
+| Save Grains File                | Save separate mesh data for each grain              | Boolean          | True       |
+| Exit Automatically              | Exit the program after simulation is completed?     | Boolean          | False      |
+
+========================================================================================
+
+5. Keyboard shortcuts:
+
+---------------------  View ---------------------
+| Shortcut              | Functionality         | Notes |
+| ----------------------|:----------------------|:----- |
+| Tab                   | Reset view            |       |
+| w,s,a,d               | Move point of view    |       |
+| ?,?,?,?               | Rotate point of view  |       |
+| PageUp, PageDown      | Zoom in/out           |       |
+
+--------------------- Deposition ---------------------
+| Shortcut      | Functionality                  | Notes |
+| ------------- |:-------------------------------|:----- |
+| R             | On/off Automatic deposition    |       |
+| E             | One step deposition            |       |
+| L             | Lid on/off                     |       |
+
+--------------------- Shaking ---------------------
+| Shortcut      | Functionality                  | Notes |
+| ------------- |:-------------------------------|:----- |
+| K             | On/off translational shaking   |       |
+| M             | On/off rotational shaking      |       |
+| J             | Increase translational shaking |       |
+| H             | Decrease translational shaking |       |
+| N             | Increase rotational shaking    |       |
+| B             | Decrease rotational shaking    |       |
+
+--------------------- Saving ---------------------
+| Shortcut      | Functionality                  | Notes |
+| ------------- |:-------------------------------|:----- |
+| F5            | Save particle pack             |       | 
+
+The save functionality will only save the selected data to export. Options are 1) grain metadata, 2) grain pack mesh data, and 3) grain mesh data.  
+
+========================================================================================
+
+6. Tips and tricks:
+
+Faster simulation? There is a tradeoff between performance and accuracy. Because this software is designed mainly for creating grain packs, you can sacrifice some accuracy to grain performance. This can be done by a number of ways.
+
+I am noticing that the grain pack does not stabilize at the end of the simulation. What can I do? First make sure that shaking is not activated. If it is not, the issue can be mitigated by increase the accuracy of the simulation by one or more of the following:
+- Increase the contact offset.
+- Decrese the fixed delta time.
+- Increase the sleep threshold.
+- Increase the bounce threshold.
+- Increase the solver iteration count.
+- Increase the velocity solver iteration count.
+
+========================================================================================
+
+7. Contact
+
+If you are using this package. I would love to hear from you on how you use and what sort of modification that you would like to be seen. You can either create an Issue on Github or send me an email directly at Mustafa.Geoscientist@outlook.com
+
+========================================================================================
+
+8. Acknowledgments
+
+We would like to thank the Stanford Rock Physics & Borehole Geophysics Project, Stanford Center for Reservoir Forecasting, and Saudi Aramco for their support and valuables discussions. We would also like to thank the Dean of School of Earth, Energy, and Environmental Sciences at Stanford University, Prof. Steve Graham, for funding.
+
+========================================================================================
+
+9. License
+
+BSD 3-Clause License
+
+Copyright (c) 2018, Mustafa Al Ibrahim
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+
+  this list of conditions and the following disclaimer in the documentation
+
+  and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its
+
+  contributors may be used to endorse or promote products derived from
+
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
