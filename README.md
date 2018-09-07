@@ -27,6 +27,8 @@ If you are using this package. I would love to hear from you on how you use and 
 
 ## Published research studies using Particula
 
+Al Ibrahim, M. A., Kerimov, A., Mukerji, T., and Mavko, G., 2018, Digital rocks with irregularly shaped grains: A simulator tool for computational rock physics: SEG Technical Program Expanded Abstracts 2018.
+
 Kerimov, A., Mavko, G., Mukerji, T., and Al Ibrahim, M. A., 2018, Mechanical trapping of particles in granular media: Physical Review E, v. 97, no. 2, 19 p. [Link](https://journals.aps.org/pre/abstract/10.1103/PhysRevE.97.022907)
 
 ## Acknowledgments
