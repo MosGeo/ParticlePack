@@ -36,7 +36,7 @@ public class BoxOperations : ContainerOperations {
 
         gameObject.AddComponent<Rigidbody>();
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
-        gameObject.GetComponent<Rigidbody>().collisionDetectionMode =CollisionDetectionMode.Continuous;
+        //gameObject.GetComponent<Rigidbody>().collisionDetectionMode =CollisionDetectionMode.Continuous;
 
 
         Vector3 slapWidth = InnerSize + 2 * WallWidth;
