@@ -12,8 +12,8 @@ Estimated Porosity = 0.54
 -----------------------------------------------
 - Simulation Parameters
 Fixed Delta Time = 0.01
-Solver Iteration Count = 20
-Velocity Solver Iteration Count = 10
+Solver Iteration Count = 2
+Velocity Solver Iteration Count = 1
 Sleep Threshold = 0.5
 Bounce Threashold = 20
 Time Scale = 5
@@ -36,7 +36,7 @@ Override Output Folder = True
 -----------------------------------------------
 - Particle Groups
 Use Volume Proportion = False
-Grain Count Goal = 1000
+Grain Count Goal = 5000
 Number of Beds = 1
 -----------------------------------------------
 - Bed 1

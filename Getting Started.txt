@@ -27,7 +27,7 @@ The executable can be ran using “Particula.exe” in the “Executable” folder. The 
 
 3. Modifying and compiling the source code:
 
-The code has to be compiled in Unity. We recommend downloading version 2017.1 (https://unity3d.com/) until further notice as we noticed some collision detection issues with newer versions. Installation of Unity is straight forward. No optional modules are required. Along with familiarity with C#, which is the scripting language in unity, it is highly recommended that you have some familiarly of the basics of Unity before modifying the code. We recommend going through the Roll a Ball and Space Shooter tutorials.
+The code has to be compiled in Unity. We recommend downloading version 2018.3 (https://unity3d.com/). Installation of Unity is straight forward. No optional modules are required. Along with familiarity with C#, which is the scripting language in unity, it is highly recommended that you have some familiarly of the basics of Unity before modifying the code. We recommend going through the Roll a Ball and Space Shooter tutorials.
 
 ========================================================================================
 
@@ -136,7 +136,7 @@ If the executable is used, a parameter file is used to provide the input to the 
 | ----------------------|:----------------------|:----- |
 | Tab                   | Reset view            |       |
 | w,s,a,d               | Move point of view    |       |
-| ?,?,?,?               | Rotate point of view  |       |
+| Up,Down,Left,Right    | Rotate point of view  |       |
 | PageUp, PageDown      | Zoom in/out           |       |
 
 --------------------- Deposition ---------------------
@@ -145,6 +145,9 @@ If the executable is used, a parameter file is used to provide the input to the 
 | R             | On/off Automatic deposition    |       |
 | E             | One step deposition            |       |
 | L             | Lid on/off                     |       |
+| Home/End      | Lid up/down                    |       |
+| Z             | Cement                         |       |
+| X             | Uncement                       |       |
 
 --------------------- Shaking ---------------------
 | Shortcut      | Functionality                  | Notes |
@@ -155,6 +158,7 @@ If the executable is used, a parameter file is used to provide the input to the 
 | H             | Decrease translational shaking |       |
 | N             | Increase rotational shaking    |       |
 | B             | Decrease rotational shaking    |       |
+| C             | Stabilize camera (visual only) |       |
 
 --------------------- Saving ---------------------
 | Shortcut      | Functionality                  | Notes |
