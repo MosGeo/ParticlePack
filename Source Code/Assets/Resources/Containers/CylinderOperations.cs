@@ -42,7 +42,7 @@ public class CylinderOperations : ContainerOperations {
 
         gameObject.AddComponent<Rigidbody>();
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
-        gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+        //gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 
 
 
@@ -75,8 +75,6 @@ public class CylinderOperations : ContainerOperations {
         GameObject TopCover = buildCover(TopCoverLocation, TopCoverScale, physMaterial, renderMaterial, "Top", containerLidTag);
         gameObject.GetComponent<ContainerOperations>().Lid = TopCover;
         TopCover.SetActive(false);
-
-
 
     }
 

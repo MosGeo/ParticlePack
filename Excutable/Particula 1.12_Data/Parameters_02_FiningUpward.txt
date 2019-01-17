@@ -1,0 +1,83 @@
+Notes = Fining Upward: A simple fining upward example with uniform-sized spherical particles
+-----------------------------------------------
+- Container Parameters
+Container Type = Box
+Container Scale = [5 5 5]
+Container Dynamic Friction = 0.6
+Container Static Friction = 0.6
+Container Bounciness = 1
+Modify Scale Automatically = True
+Buffer Length = 0.1
+Estimated Porosity = 0.54
+-----------------------------------------------
+- Simulation Parameters
+Fixed Delta Time = 0.01
+Solver Iteration Count = 20
+Velocity Solver Iteration Count = 10
+Sleep Threshold = 0.5
+Bounce Threashold = 20
+Time Scale = 5
+Target Frame Rate = 30
+Contact Offset = 0.01
+-----------------------------------------------
+- Shaking Parameters
+Shake Transversly = False
+Shake Rotationally = False
+Stabilize Camera = False
+Shaking Fracton = 0.005
+Shaking Roation Fraction = 0.005
+-----------------------------------------------
+- Folders Parameters
+Project Folder Path = ./
+PDF Folder Name = PDFs
+Save Folder Name = Output
+Create New Folder Automatically = True
+Override Output Folder = True
+-----------------------------------------------
+- Particle Groups
+Use Volume Proportion = False
+Grain Count Goal = 1000
+Number of Beds = 1
+-----------------------------------------------
+- Bed 1
+Bed 1 Name = Bed 1
+Bed 1 Proportion = 1
+Bed 1 Wait After Deposition = 3
+Bed 1 Cement After Deposition = False
+Bed 1 Disappear After Deposition = False
+Bed 1 Number of Grains = 1
+-- Bed 1 Grain 1
+Bed 1 Grain 1 Name = Bed 1 Grain 1
+Bed 1 Grain 1 Type = Sphere
+Bed 1 Grain 1 Parameters = Amplitude = .1, Frequency = 1, Lacunarity = .2, OctaveCount = 6, Persistence = .5, ResizeType = ByVolume
+Bed 1 Grain 1 PDF = Uniform
+Bed 1 Grain 1 PDF Multiplier = 1
+Bed 1 Grain 1 PDF Offset = 0
+Bed 1 Grain 1 Density = 2650
+Bed 1 Grain 1 Exact Vertical Creation = False
+Bed 1 Grain 1 Disappear At Bottom = False
+Bed 1 Grain 1 Proportion = 1
+Bed 1 Grain 1 Deposition Type = FiningUpward
+Bed 1 Grain 1 Dynamic Friction = 0.6
+Bed 1 Grain 1 Static Friction = 0.6
+Bed 1 Grain 1 Bounciness = 0.1
+Bed 1 Grain 1 Friction Combine = Average
+Bed 1 Grain 1 Bounce Combine = Average
+Bed 1 Grain 1 Color Type = Size
+Bed 1 Grain 1 Base Color = [255 0 0 0]
+Bed 1 Grain 1 Secondary Color = [198.7241 255 0 0]
+Bed 1 Grain 1 Scale = [1 1 1]
+-----------------------------------------------
+- Deposition Parameters
+Automatic Deposition = True
+Deposition Rate Per Sec = 10
+Save Rock Automatically = False
+Exit Automatically = False
+-----------------------------------------------
+- Deposition Parameters
+Save Rock Automatically = False
+Save Data File = True
+Save Rock File = True
+Save Grains File = True
+Exit Automatically = False
+-----------------------------------------------

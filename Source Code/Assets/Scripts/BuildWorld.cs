@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.IO;
+using System;
+using System.Threading.Tasks;
 
 public class BuildWorld : MonoBehaviour {
 
     public enum ContainerType { Box, Cylinder };
-
 
     [Header("Container")]
     public ContainerType containerType = ContainerType.Box;
@@ -27,9 +28,6 @@ public class BuildWorld : MonoBehaviour {
     GameObject Container;
     GameObject userCamera;
 
-
-    //[Header("Camera")]
-
     [Header("Simulation Parameters")]
     public float FixedDeltaTime = .01f;
     [Range(1,100)]
@@ -40,8 +38,6 @@ public class BuildWorld : MonoBehaviour {
     public float TimeScale = 5f;
     public int TargetFrameRate = 30;
     public float contactOffset = .001f;
-    //Rigidbody.solverVelocityIterations
-    //
 
     [Header("Shaking Parameters")]
     public bool shakeTransversly = false;
@@ -100,22 +96,26 @@ public class BuildWorld : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
+        Screen.fullScreen = false;
 
         // UI
-        uiText = GameObject.FindGameObjectWithTag("UI");
+        uiText = GameObject.FindGameObjectWithTag("UI");        
 
 
         Application.runInBackground = true;
         Application.targetFrameRate = TargetFrameRate;
 
+        // Load configuration file
         if (autoLoadConfigFile == true)
         {
             LoadConfigurationFile();
         }
 
 
+        // Construct rock
         rock = new Rock(beds, grainCountGoal, projectFolderPath, pdfFolderName, useVolumeProportion);
-        // Container
+        
+        // Construct container
         string ContainerName = containerType.ToString();
         GameObject ContainerPrefab = Resources.Load("Containers/" + ContainerName) as GameObject;
         ContainerPrefab.GetComponent<ContainerOperations>().setContainerScale(ContainerScale);
@@ -135,9 +135,7 @@ public class BuildWorld : MonoBehaviour {
         ContainerPrefab.GetComponent<ContainerOperations>().containerBounceCombine = containerBounceCombine;
         Container = Instantiate(ContainerPrefab);
 
-
         // Attach Camera
-        //userCamera = GameObject.FindGameObjectWithTag("MainCamera").gameObject;
         userCamera = Camera.main.gameObject;
         userCamera.GetComponent<CameraController>().Container = Container;
         userCamera.GetComponent<CameraController>().initializeCamera(Container.GetComponent<ContainerOperations>().getInitialCameraPosition(), Container.GetComponent<ContainerOperations>().getInitialLookLocation());
@@ -147,19 +145,14 @@ public class BuildWorld : MonoBehaviour {
         rock.container = Container;
         Container.GetComponent<ContainerOperations>().rock = rock;
 
-
         // Attach Shaker to Container
         shaker = new Shaker();
         shaker.container = Container;
         shaker.rock = rock;
 
-
         OnValidate();
 
     }
-    //===================================================================
-
-
     //===================================================================
     // Update is called once per frame
     void Update () {
@@ -204,11 +197,15 @@ public class BuildWorld : MonoBehaviour {
             }
         }
 
-
         // Input
-
         if (Input.GetKeyUp(KeyCode.C)) { stabilizeCamera = !stabilizeCamera;}
-        if (Input.GetKeyUp(KeyCode.F5) == true){saveData();}
+        if (Input.GetKeyUp(KeyCode.F5) == true)
+        {
+            updateText("Saving...");
+            saveActive = true;
+            saveStatus = false;
+
+        }
 
         if (Input.GetKeyDown(KeyCode.J)) { ShakingFraction += .0001f;}
         if (Input.GetKeyDown(KeyCode.H)) {ShakingFraction -= .0001f; }
@@ -231,16 +228,12 @@ public class BuildWorld : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.F1)) { Application.Quit(); }
 
-
-
         // Shaker
         shaker.shakeBox(shakeTransversly, shakeRotationaly, ShakingFraction, ShakingRotationFraction);
         OnValidate();
     }
     //===================================================================
-
-
-    //===================================================================
+    // Editor function, does not affect the EXE
     void OnValidate()
     {
         // Validate
@@ -272,8 +265,6 @@ public class BuildWorld : MonoBehaviour {
 
     }
     //===================================================================
-
-    //===================================================================
     private void AfterBedOperations()
     {
         lastGenerationTime = Time.time + rock.beds[rock.currentBed].waitAfterDepostion;
@@ -287,20 +278,20 @@ public class BuildWorld : MonoBehaviour {
         }
     }
     //===================================================================
-
-    //===================================================================
     private void AfterRockOperations()
     {
         saveActive = saveRockAutomatically;
+        if (saveActive)
+        {
+            updateText("Saving...");
+        }
         exitActive = exitAutomatically;
     }
     //===================================================================
-
     private bool saveData()
     {
         string saveFolder;
         saveFolder = projectFolderPath + saveFolderName;
-
         DirectoryInfo directoryInfo  = new DirectoryInfo(saveFolder);
 
         if (directoryInfo.Exists == false)
@@ -310,7 +301,10 @@ public class BuildWorld : MonoBehaviour {
                 directoryInfo.Create();
                 directoryInfo = new DirectoryInfo(saveFolder);
             }
-            else { return false; }
+            else {
+                resetText();
+                return false;
+            }
         }
 
         if (FileOperations.IsDirectoryEmpty(directoryInfo) == false)
@@ -319,24 +313,35 @@ public class BuildWorld : MonoBehaviour {
             {
                 FileOperations.EmptyDirectory(directoryInfo);
             }
-            else { return false; }
+            else {
+                resetText();
+                return false;
+            }
         }
-
 
         if(saveDataFile) DataSaver.saveLocationData(rock, saveFolder);
         if (saveGrainsFile) DataSaver.saveSingleGrainsMesh(rock, saveFolder);
         if (saveRockFile) DataSaver.saveMeshData(rock, saveFolder);
 
+        resetText();
         return true;
     }
-
     //===================================================================
     private void CloseApplication()
     {
         Application.Quit();
     }
     //===================================================================
+    private void updateText(string text)
+    {
+        uiText.GetComponent<UnityEngine.UI.Text>().text = text;        
+    }
 
+    //===================================================================
+    private void resetText()
+    {
+        uiText.GetComponent<UnityEngine.UI.Text>().text = "Mustafa Al Ibrahim (Mustafa.Geoscientist@Outlook.com)\nAll Rights Reserved, 2019, Version 1.12";
+    }
     //===================================================================
     public void LoadConfigurationFile()
     {
@@ -345,11 +350,7 @@ public class BuildWorld : MonoBehaviour {
         string parameterFilePath = folderPath + configFileName;
 
         //uiText.GetComponent<UnityEngine.UI.Text>().text = parameterFilePath;
-
-
         ParameterGroup configFile = new ParameterGroup(parameterFilePath);
-
-
 
         // Project
         projectNotes = configFile.getString("Notes");
@@ -574,12 +575,8 @@ public class BuildWorld : MonoBehaviour {
         rawData.AppendLine("Exit Automatically" + " = " + exitAutomatically.ToString());
         rawData.AppendLine("-----------------------------------------------");
 
-
         System.IO.File.WriteAllText(parameterFilePath, rawData.ToString());
         Debug.Log("Saving Parameter File Done");
-
-
-
     }
     //===================================================================
 
