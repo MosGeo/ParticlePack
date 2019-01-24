@@ -105,7 +105,7 @@ classdef GrainPack < handle
                %grainImage = inhull([X(grainMask),Y(grainMask),Z(grainMask)], vertices);
        end
        
-       function visulize3D(obj, binaryImage)
+       function visualize3D(obj, binaryImage)
            if exist('binaryImage', 'var') == false
                binaryImage = obj.binaryImage;
            end
@@ -120,7 +120,7 @@ classdef GrainPack < handle
            axis equal;
        end
        
-       function visulizeSlices(obj, xSlicesPercentage, ySlicesPercentage, zSlicesPercentage, binaryImage)
+       function visualizeSlices(obj, xSlicesPercentage, ySlicesPercentage, zSlicesPercentage, binaryImage)
            if exist('binaryImage', 'var') == false
                binaryImage = obj.binaryImage;
            end

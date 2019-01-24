@@ -19,11 +19,11 @@ grainPack.createBinaryGrainPack(.03);
 grainPack.extractSubVolume(.05,.05,[.05 .1]);
 
 % Visualize 3D (slow)
-grainPack.visulize3D();
+grainPack.visualize3D();
 
-% Visulize slices (fast). The slice percentage is defined in each direction
-grainPack.visulizeSlices(.5, .5, .5)
-grainPack.visulizeSlices([0,1], [1], [0])
+% visualize slices (fast). The slice percentage is defined in each direction
+grainPack.visualizeSlices(.5, .5, .5)
+grainPack.visualizeSlices([0,1], [1], [0])
 
 % Get the binary image from the object
 bwImage = grainPack.binaryImage;   % Cropped
