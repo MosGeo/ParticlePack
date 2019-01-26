@@ -1,28 +1,36 @@
 classdef GrainPack < handle
-   properties
+   % A class to contain all the grains of a grain pack. You can use it to
+   % binarize a grain pack and do some simple visualizations and calculate
+   % prosotiy
+   
+    properties
       nGrains
       grains
       boxDimensions
       binaryResolution
       binaryImage
       fullBinaryImage
-      %labeledImage
-      %fullLabeledImage
+      labeledImage
+      fullLabeledImage
    end
    
    methods
    
+       % =================================================================
+       % Constructor
        function obj = GrainPack(grains)
             obj.nGrains = numel(grains);
             obj.grains = grains;
             obj.optimizeBoxDimensions(.01);
-       end
-       
+       end 
+       % =================================================================
+       % Insert the grains into the grain pack
        function setGrains(obj, grains)
             obj.nGrains = numel(grains);
             obj.grains = grains;
-       end
-       
+       end  
+       % =================================================================
+       % Get the smallest box dimensions
        function optimizeBoxDimensions(obj, bufferPercentage)
           allVertices = arrayfun(@(x) x.Vertices,obj.grains, 'UniformOutput', false);
           allVertices = cell2mat(allVertices');
@@ -34,7 +42,9 @@ classdef GrainPack < handle
           obj.boxDimensions = [minBox; maxBox];
        end
        
-       function binaryImage = createBinaryGrainPack(obj, resolution, isParallel)
+       % ================================================================= 
+       % Binarize the grains (from meshes to binary image)
+       function [binaryImage, labeledImage] = createBinaryGrainPack(obj, resolution, isParallel)
            if exist('isParallel', 'var') == false
               isParallel = false; 
            end
@@ -48,17 +58,16 @@ classdef GrainPack < handle
            [X,Y,Z] = meshgrid(minBox(1):resolution(1):maxBox(1), minBox(2):resolution(2):maxBox(2), minBox(3):resolution(3):maxBox(3));  %volume mesh
            binaryImageSize = size(X);
            binaryImage = zeros(numel(X),1);
-           %labeledImage = zeros(numel(X),1);
+           labeledImage = zeros(numel(X),1);
            X = X(:); Y = Y(:); Z = Z(:);
            grainMask = cell(1, obj.nGrains);
-           grainImage = cell(2, obj.nGrains);
-           
+           grainImage = cell(1, obj.nGrains);
            if isParallel == false
                 for grainNumber = 1:obj.nGrains
                    disp(['Analyzing Grain ' num2str(grainNumber) ' Out of ' num2str(obj.nGrains)])
                    vertices = obj.grains(grainNumber).Vertices;
-                   grainMask{grainNumber}= obj.createGrainMask(vertices, X, Y, Z);
-                   grainImage{grainNumber}  = obj.checkPointLocation(vertices, X, Y, Z, grainMask{grainNumber});
+                   grainMask{grainNumber} = obj.createGrainMask(vertices, X, Y, Z);
+                   grainImage{grainNumber}= obj.checkPointLocation(vertices, X, Y, Z, grainMask{grainNumber});
                end
            else
                parfor grainNumber = 1:obj.nGrains
@@ -70,32 +79,34 @@ classdef GrainPack < handle
            end
            
            for grainNumber = 1:obj.nGrains
-		    disp(['Finalizing Grain ' num2str(grainNumber) ' Out of ' num2str(obj.nGrains)])
-            currentGrainMask =  grainMask{grainNumber};   
-            binaryImage(currentGrainMask) = binaryImage(currentGrainMask) | grainImage{grainNumber};
-            
-            %updatedLabel = labeledImage(currentGrainMask) + grainImage{grainNumber}*grainNumber;
-            %updatedLabel(binaryImage(currentGrainMask) & grainImage{grainNumber}) = grainNumber;
-            %labeledImage(currentGrainMask) =  updatedLabel;
+                disp(['Finalizing Grain ' num2str(grainNumber) ' Out of ' num2str(obj.nGrains)])
+                currentGrainMask  =  grainMask{grainNumber};
+                currentGrainImage = grainImage{grainNumber};
+                binaryImage(currentGrainMask)  = binaryImage(currentGrainMask) | currentGrainImage;
+                labeledImage(currentGrainMask(currentGrainImage)) = grainNumber;
            end
            
         binaryImage = reshape(binaryImage,binaryImageSize);                 %reshape the mask 
-        %labeledImage = reshape(labeledImage,binaryImageSize);
+        labeledImage = reshape(labeledImage,binaryImageSize);
         
         obj.binaryImage= binaryImage;
         obj.fullBinaryImage = binaryImage;
-        %obj.fullLabeledImage = labeledImage;
-        %obj.labeledImage = labeledImage;
+        obj.fullLabeledImage = labeledImage;
+        obj.labeledImage = labeledImage;
         obj.binaryResolution = resolution;
        end
        
+       % =================================================================
+       % Internal function: creats a grain mask for one grain
        function grainMask = createGrainMask(obj, vertices, X, Y, Z)
            xLocation = X>=min(vertices(:,1)) & X<=max(vertices(:,1));
            ylocation = Y>=min(vertices(:,2)) & Y<=max(vertices(:,2));
            Zlocation = Z>=min(vertices(:,3)) & Z<=max(vertices(:,3));
            grainMask = find(xLocation & ylocation & Zlocation);
-       end
-       
+       end      
+       % =================================================================
+       % Internal function: determine if certian points are inside the
+       % grain
        function grainImage = checkPointLocation(obj, vertices, X, Y, Z, grainMask)
                tri = delaunayTriangulation(vertices);                                %triangulation
                SI = pointLocation(tri,X(grainMask),Y(grainMask),Z(grainMask));       %index of simplex (returns NaN for all points outside the convex hull)
@@ -104,7 +115,8 @@ classdef GrainPack < handle
                %grainImage = intriangulation(vertices,faces,[X(grainMask),Y(grainMask),Z(grainMask)]);   
                %grainImage = inhull([X(grainMask),Y(grainMask),Z(grainMask)], vertices);
        end
-       
+       % =================================================================
+       % Visualize grains, not recommended
        function visualize3D(obj, binaryImage)
            if exist('binaryImage', 'var') == false
                binaryImage = obj.binaryImage;
@@ -120,7 +132,9 @@ classdef GrainPack < handle
            axis equal;
        end
        
-       function visualizeSlices(obj, xSlicesPercentage, ySlicesPercentage, zSlicesPercentage, binaryImage)
+       % =================================================================
+       % Visualize slices
+       function ax = visualizeSlices(obj, xSlicesPercentage, ySlicesPercentage, zSlicesPercentage, binaryImage)
            if exist('binaryImage', 'var') == false
                binaryImage = obj.binaryImage;
            end
@@ -140,12 +154,14 @@ classdef GrainPack < handle
            colormap gray
            axis equal;
            box on
-       end
-       
+           ax = gca;
+       end   
+       % =================================================================
+       % Extract a sub-cube rom the image
        function binarySubImage =  extractSubVolume(obj, xBuffer, yBuffer,zBuffer, binaryImage)
            if exist('binaryImage', 'var') == false
                binaryImage = obj.fullBinaryImage;
-               %labeledImage = obj.fullLabeledImage;
+               labeledImage = obj.fullLabeledImage;
            end
            binaryImageSize = size(binaryImage);
            
@@ -156,17 +172,24 @@ classdef GrainPack < handle
            if (numel(sx) == 1); sx=[sx sx]; end
            if (numel(sy) == 1); sy=[sy sy]; end
            if (numel(sz) == 1); sz=[sz sz]; end
-           binarySubImage=binaryImage(1+sx(1):end-sx(2), 1+sy(1):end-sy(2), 1+sz(1):end-sz(2));
-           %labeledSubImage=labeledImage(1+sx(1):end-sx(2), 1+sy(1):end-sy(2), 1+sz(1):end-sz(2));
-
+           binarySubImage = binaryImage(1+sx(1):end-sx(2), 1+sy(1):end-sy(2), 1+sz(1):end-sz(2));
+           
+           if exist('labeledImage', 'var') == true
+               labeledSubImage = labeledImage(1+sx(1):end-sx(2), 1+sy(1):end-sy(2), 1+sz(1):end-sz(2));
+               obj.labeledImage= labeledSubImage;
+           end
+           
            obj.binaryImage = binarySubImage;
-           %obj.labeledImage= labeledSubImage;
-       end
-       
+       end     
+       % =================================================================
+       % Reset sub-cube extraction
        function resetSubVolume(obj)
         obj.binaryImage= obj.fullBinaryImage;
+        obj.labeledImage = obj.fullLabeledImage;
        end
        
+       % =================================================================
+       % Get porosity
        function porosity = calculatePorosity(obj, binaryImage)
              if exist('binaryImage', 'var') == false
                binaryImage = obj.binaryImage;
@@ -177,8 +200,9 @@ classdef GrainPack < handle
              end
              
              porosity = 1 - sum(binaryImage(:))/numel(binaryImage);
-       end
-       
+       end    
+       % =================================================================
+       % Save binary image in on tif
        function saveBinaryImage(obj,outputFileName, binaryImage)
            if exist('outputFileName', 'var') == false
                outputFileName = 'binaryImage.tif';
@@ -191,8 +215,9 @@ classdef GrainPack < handle
                imwrite(binaryImage(:, :, K), outputFileName, 'WriteMode', 'append',  'Compression','none');
             end 
        end
-       
-     function saveBinaryImageStack(obj,outputFileName, direction, nDigits, extension, binaryImage)
+       % =================================================================
+       % Save image as slices
+       function saveBinaryImageStack(obj,outputFileName, direction, nDigits, extension, binaryImage)
          
            % Default Values
            if exist('outputFileName', 'var') == false; outputFileName = 'binaryImage';end
@@ -222,13 +247,15 @@ classdef GrainPack < handle
                    imwrite(im, [outputFileName '_' Kstring '.' extension]);  
                end
            end    
-     end
-       
-     function saveGrainPack(obj, outputFileName)
-        save(outputFileName, 'obj');
-     end
-     
-     function [porosities, dDimension, nSplits] = calculateSubsamplePorosity(obj, devision, isSplitOrWidth, binaryImage)
+      end
+      % =================================================================
+      % Saves the grain pack
+      function saveGrainPack(obj, outputFileName)
+            save(outputFileName, 'obj');
+      end
+      % =================================================================
+      % Calculate subsample porosity
+       function [porosities, dDimension, nSplits] = calculateSubsamplePorosity(obj, devision, isSplitOrWidth, binaryImage)
          
         if exist('binaryImage', 'var') == false
                binaryImage = obj.binaryImage;
@@ -253,6 +280,7 @@ classdef GrainPack < handle
         porosities = arrayfun(functionToApply, subSamples);
      end
      
+     % =================================================================     
      function [subSamples, dDimension, nSplits] = subSampleByNumberOfSplits(obj, nSplits, binaryImage)
         if exist('binaryImage', 'var') == false
                binaryImage = obj.binaryImage;
@@ -278,7 +306,7 @@ classdef GrainPack < handle
         subSamples = subSamples(:);
          
      end
-     
+     % =================================================================    
      function [subSamples, dDimension, nSplits] = subSampleByWidth(obj, dDimension, binaryImage)
         if exist('binaryImage', 'var') == false
                binaryImage = obj.binaryImage;
@@ -305,7 +333,8 @@ classdef GrainPack < handle
         subSamples = subSamples(:);
          
      end
-     
+     % =================================================================
+     % Calculate sphericity
      function [sphericity, volume, surfaceArea] = calculateSphericity(obj, isPlot)
         if exist('isPlot', 'var') == false; isPlot = false; end
         
@@ -323,7 +352,8 @@ classdef GrainPack < handle
         end
         
      end
-     
+     % =================================================================
+     % Calculate curvatures
      function [Cmean,Cgaussian] =  calculateMeanGrainCurvature(obj)
         if exist('isPlot', 'var') == false; isPlot = false; end
         
@@ -344,7 +374,8 @@ classdef GrainPack < handle
            histogram(Cmean); 
         end
      end
-      
+     % =================================================================
+
    end
    
    
