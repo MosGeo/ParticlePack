@@ -14,7 +14,8 @@ classdef Grain < matlab.mixin.SetGet
    end
    
    methods 
-       
+   
+      % ================================================================= 
       function obj = Grain(val)
         if nargin > 0
         obj.nVertices = 0;
@@ -27,7 +28,7 @@ classdef Grain < matlab.mixin.SetGet
         obj.rotation = [0, 0, 0];
         end
       end
-      
+      % ================================================================= 
       function setMeshData(obj,Vertices, Faces, normals)
         obj.nVertices = size(Vertices,1);
         obj.Vertices = Vertices;
@@ -37,38 +38,38 @@ classdef Grain < matlab.mixin.SetGet
         obj.YData = Vertices(:,2);
         obj.ZData = Vertices(:,3);
       end
-      
+      % ================================================================= 
       function setName(obj,name)
          obj.name = name; 
       end
-      
+      % ================================================================= 
       function setPRSdata(obj, position, rotation, scale)
         obj.position = position;
         obj.scale = rotation;
         obj.rotation = scale;  
       end
-      
+      % ================================================================= 
       function [position, rotation, scale] =  getPRSdata(obj)
         position = obj.position;
         rotation = obj.scale ;
         scale = obj.rotation ;  
       end
-   
+      % ================================================================= 
       function FV = getFV(obj)
          FV.Vertices = obj.Vertices;
          FV.Faces = obj.Faces;
       end
-      
+      % ================================================================= 
       function scaleGrain(obj, scaleVector)
         obj.Vertices = obj.Vertices .* repmat(scaleVector, obj.nVertices,1);
         obj.scale = obj.scale .* scaleVector;
       end
-      
+      % ================================================================= 
       function translateGrain(obj, translationVector)
           obj.Vertices = obj.Vertices + repmat(translationVector, obj.nVertices,1);
           obj.position = obj.position +  translationVector;
       end
-      
+      % ================================================================= 
       function rotateGrain(obj, eularAngles)
         thetaX = deg2rad(eularAngles(1));
         thetaY = deg2rad(eularAngles(2));
@@ -82,7 +83,7 @@ classdef Grain < matlab.mixin.SetGet
         obj.Vertices = obj.Vertices * roationMatrix';
         obj.rotation = obj.roation + eularAngles;
       end
-      
+      % ================================================================= 
       function plotGrain(obj,faceColorScale, zScaleRange)
 
          %'FaceColor',       [0.8 0.8 1.0]
@@ -116,7 +117,7 @@ classdef Grain < matlab.mixin.SetGet
         set(gca,'ZTickLabel',[]);
         %title(obj.name, 'Interpreter', 'none');
       end
-      
+      % ================================================================= 
       function [Cmean,Cgaussian,Dir1,Dir2,Lambda1,Lambda2] =  calculateCurvature(obj, isPlot, zScaleRange)
           if exist('isPlot', 'var') == false; isPlot = false; end
           [Cmean,Cgaussian,Dir1,Dir2,Lambda1,Lambda2]=patchcurvature(obj.getFV(),true);
@@ -130,15 +131,14 @@ classdef Grain < matlab.mixin.SetGet
             end
           end
       end
-      
+      % ================================================================= 
       function [sphericity, volume, surfaceArea] = calculateSphericity(obj)
         obj.Vertices
         FV.Vertices = obj.Vertices;
         FV.Faces = obj.Faces;
-        [sphericity, volume, surfaceArea] = sphericityIndex(FV);
-        
+        [sphericity, volume, surfaceArea] = sphericityIndex(FV);       
       end
-      
+      % ================================================================= 
    end
    
 end
