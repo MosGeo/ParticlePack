@@ -6,7 +6,7 @@ Particula - Particle Pack Generator
     <img width=500 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/TopImage.png" alt="TopImage" title="Image of particle pack"</img>
 </div>
 
-The software simulates the formation of three-dimensional packings of spherical and non-spherical (regular and irregular) particles with prescribed size distributions. An efficient approach to create multiple realizations of non-spherical irregularly shaped particles using coherent noise modification of the spherical particle surface is introduced. The simulator generates loose and dense granular packings of prescribed shape and size distributions.
+The software simulates the formation of three-dimensional packings of spherical and non-spherical (regular and irregular) particles with prescribed size distributions. An efficient approach to create multiple realizations of non-spherical irregularly shaped particles using coherent noise modification of the spherical particle surface is introduced. The simulator generates loose and dense granular packings by shaking. Complex depositional styles (fining upward, coarsening upward, random) are possible. Furthermore, multiple beds can be simulated to produce geologically realistic grading.
 
 ## How does it work
 Discrete element method is used to pour generated particles into a container. Shaking can be applied to produce denser packs.
