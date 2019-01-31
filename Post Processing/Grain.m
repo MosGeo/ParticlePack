@@ -1,5 +1,6 @@
 classdef Grain < matlab.mixin.SetGet
-   properties
+   
+    properties
       Vertices
       Faces
       name

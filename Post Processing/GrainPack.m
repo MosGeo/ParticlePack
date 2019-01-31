@@ -17,11 +17,50 @@ classdef GrainPack < handle
    
        % =================================================================
        % Constructor
-       function obj = GrainPack(grains)
+       function obj = GrainPack(grainDirectory)
+            [grains] = obj.loadGrains(grainDirectory);
             obj.nGrains = numel(grains);
             obj.grains = grains;
             obj.optimizeBoxDimensions(.01);
        end 
+       % =================================================================
+       function [grains] = loadGrains(obj, grainDirectory)
+            grainsListing = dir(fullfile(grainDirectory, 'Grain*.stl'));
+            nGrains =  numel(grainsListing);
+
+            % load Results File
+            nameColumn = 1;
+            positionColumns = [2 3 4];
+            rotationColumns = [5 6 7];
+            scaleColumns = [8 9 10];
+            resultsFileName = 'Results.dat';
+            formatSpec = '%s%s%s%s%s%s%s%s%s%s%s%s%s%s';
+            resultsFileName = fullfile(grainDirectory, resultsFileName);
+            fileID = fopen(resultsFileName,'r');
+            dataArray = textscan(fileID, formatSpec, 'Delimiter', ' ', 'MultipleDelimsAsOne', true, 'HeaderLines' ,1, 'ReturnOnError', false);
+            fclose(fileID);
+            cell2num = @(inputCell) arrayfun(@(x) str2double(x), inputCell);
+            grainNames = dataArray{nameColumn};
+            grainPosition = [cell2num(dataArray{positionColumns(1)}) cell2num(dataArray{positionColumns(2)}) cell2num(dataArray{positionColumns(3)})];
+            grainRotation = [cell2num(dataArray{rotationColumns(1)}) cell2num(dataArray{rotationColumns(2)}) cell2num(dataArray{rotationColumns(3)})];
+            grainScale = [cell2num(dataArray{scaleColumns(1)}) cell2num(dataArray{scaleColumns(2)}) cell2num(dataArray{scaleColumns(3)})];
+            clear nameColumn positionColumns rotationColumns scaleColumns formatSpec fileID resultsFileName dataArray
+
+            grains(nGrains) = Grain(nGrains);
+            for grainNumber = 1:nGrains
+                disp(['Loading Grain ' num2str(grainNumber) ' Out of ' num2str(nGrains)])
+                selectedGrainName = grainsListing(grainNumber).name;
+                grainNameExtract = strsplit(selectedGrainName, ' - ');
+                grainNameExtract = grainNameExtract{2};
+                [~, ind] = ismember(grainNameExtract(1:end-4), grainNames);
+                grainFileName = fullfile(grainDirectory, selectedGrainName);
+                [vertices,faces,normals,~] = stlRead(grainFileName);
+                grains(grainNumber).setMeshData(vertices, faces, normals);
+                grains(grainNumber).setName(selectedGrainName);
+                grains(grainNumber).setPRSdata(grainPosition(ind,:), grainRotation(ind,:), grainScale(ind,:))
+                grains(grainNumber).translateGrain(grainPosition(ind,:));
+            end       
+       end
        % =================================================================
        % Insert the grains into the grain pack
        function setGrains(obj, grains)
@@ -128,9 +167,13 @@ classdef GrainPack < handle
        
        % =================================================================
        % Visualize slices
-       function ax = visualizeSlices(obj, xSlicesPercentage, ySlicesPercentage, zSlicesPercentage, image)
-           if exist('image', 'var') == false
-               image = obj.labeledImage;
+       function ax = visualizeSlices(obj, xSlicesPercentage, ySlicesPercentage, zSlicesPercentage, isBinary)
+           if ~exist('isBinary', 'var'); isBinary = true; end
+           
+           if isBinary
+                image = obj.getBinaryImage(); 
+           else
+                image = obj.labeledImage;
            end
            
            imageSize = size(image);
@@ -140,14 +183,15 @@ classdef GrainPack < handle
            sx(sx==0) = 1;
            sy(sy==0) = 1;
            sz(sz==0) = 1;
+           
+           figure('Color', 'White')
            h = slice(image,sx,sy,sz);
            minValue = inf;
            maxValue = -inf;
            for i = 1:numel(h)
-            %h(i).FaceColor = 'interp';
-            h(i).EdgeColor = 'none';
-            minValue = min([h(1).CData(:); minValue]);
-            maxValue = max([h(1).CData(:); maxValue]);
+                h(i).EdgeColor = 'none';
+                minValue = min([h(1).CData(:); minValue]);
+                maxValue = max([h(1).CData(:); maxValue]);
            end
            caxis([minValue, maxValue]);
            colormap gray
