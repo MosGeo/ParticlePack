@@ -6,10 +6,10 @@ Particula - Particle Pack Generator
     <img width=500 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/TopImage.png" alt="TopImage" title="Image of particle pack"</img>
 </div>
 
-## Overview
+The software simulates the formation of three-dimensional packings of spherical and non-spherical (regular and irregular) particles with prescribed size distributions. An efficient approach to create multiple realizations of non-spherical irregularly shaped particles using coherent noise modification of the spherical particle surface is introduced. The simulator generates loose and dense granular packings of prescribed shape and size distributions.
 
-The software simulates the formation of three-dimensional packings of spherical and non-spherical (regular and irregular) particles with prescribed size distributions. An efficient approach to create multiple realizations of non-spherical irregularly shaped particles using coherent noise modification of the spherical particle surface is introduced. The simulator generates loose and dense granular packings of prescribed shape and size distributions. Examples of what is possible to produce are below.
-
+## How does it work
+Discrete element method is used to pour generated particles into a container. Shaking can be applied to produce denser packs.
 
 <div align="center">
     <img width=1000 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/Process.png" alt="Process" title="Particle Generation Process"</img>
@@ -21,7 +21,7 @@ The compiled software was tested on multiple Windows 10 machines. To compile the
 
 ## Getting started
 
-The compiled version uses a parameter file to define the simulation parameters. The source code can be ran inside Unity and the same parameters can be modified in the platform. Please check the [Wiki Page](https://github.com/MosGeo/ParticlePack/wiki) for detailed information.
+The compiled version uses a parameter file to define the simulation parameters. It can run on a Windows machine. The source code can be ran inside Unity and the same parameters can be modified in the platform. The source code can be compiled on Windows, Mac, or Linux. Please check the [Wiki Page](https://github.com/MosGeo/ParticlePack/wiki) for detailed information.
 
 ## Post processing
 To create a binary image from the output, Matlab code is provided in the "Post Processing" folder.
