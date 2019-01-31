@@ -184,7 +184,7 @@ classdef GrainPack < handle
            sy(sy==0) = 1;
            sz(sz==0) = 1;
            
-           figure('Color', 'White')
+           %figure('Color', 'White')
            h = slice(image,sx,sy,sz);
            minValue = inf;
            maxValue = -inf;

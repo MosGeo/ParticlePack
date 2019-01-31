@@ -12,14 +12,18 @@ grainPack.createBinaryGrainPack(.03);
 % can have one value for each direction or two values that are different
 % for each direction, e.g., down and up in the Z direction in the example
 % below)
-grainPack.extractSubVolume(.05,.05,[.05 .1]);
+grainPack.extractSubVolume(.1,.1,[.05 .2]);
 
 % Visualize 3D (slow), don't use on large images
 % grainPack.visualize3D();
 
 % Visualize slices (fast). The slice percentage is defined in each 
 % direction
+
+figure('Color', 'White')
+subplot(1,2,1)
 grainPack.visualizeSlices(.5, .5, .5)
+subplot(1,2,2)
 grainPack.visualizeSlices([0,1], [0,1], [0,1])
 
 % Get the binary image from the object
