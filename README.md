@@ -3,7 +3,7 @@ Particula - Particle Pack Generator
 =====
 
 <div align="center">
-    <img width=500 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/TopImage.jpg" alt="TopImage" title="Image of particle pack"</img>
+    <img width=500 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/TopImage.png" alt="TopImage" title="Image of particle pack"</img>
 </div>
 
 ## Overview
