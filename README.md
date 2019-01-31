@@ -16,7 +16,7 @@ The software simulates the formation of three-dimensional packings of spherical 
 Discrete element method is used to pour generated particles into a container. Shaking can be applied to produce denser packs.
 
 <div align="center">
-    <img width=1000 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/Process.png" alt="Process" title="Particle Generation Process"</img>
+    <img width=800 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/Process.png" alt="Process" title="Particle Generation Process"</img>
 </div>
 
 ## Requirements
