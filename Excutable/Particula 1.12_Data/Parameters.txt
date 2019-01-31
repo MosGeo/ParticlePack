@@ -30,7 +30,7 @@ Shaking Roation Fraction = 0.005
 - Folders Parameters
 Project Folder Path = ./
 PDF Folder Name = PDFs
-Save Folder Name = Output_PDF_Uni
+Save Folder Name = Output
 Create New Folder Automatically = True
 Override Output Folder = True
 -----------------------------------------------
