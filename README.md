@@ -17,7 +17,7 @@ Discrete element method is used to pour generated particles into a container. Sh
 
 ## Requirements
 
-The compiled software was tested on multiple Windows 10 machines. To compile the source code, [Unity3D](https://unity3d.com/) is required. Version 2017.1.3 is recommended. Hardware requirements depend on the desired number of particles in the packings generated. A typical laptop specification would be suitable for 5000-10000 particles. 
+The compiled software was tested on multiple Windows 10 machines. To compile the source code, [Unity3D](https://unity3d.com/) is required. Version 2018.3 is currently recommended. Hardware requirements depend on the desired number of particles in the packings generated. A typical laptop specification would be suitable for 5000-10000 particles. 
 
 ## Getting started
 
@@ -32,6 +32,8 @@ If you are using this package. I would love to hear from you on how you use and 
 ## Published research studies using Particula
 
 Al Ibrahim, M. A., Kerimov, A., Mukerji, T., and Mavko, G., 2018, Digital rocks with irregularly shaped grains: A simulator tool for computational rock physics: SEG Technical Program Expanded Abstracts 2018.
+
+Kerimov, A., Mavko, G., Mukerji, T., Dvorkin, J., and Al Ibrahim, M. A., 2018, The Influence of Convex Particles' Irregular Shape and Varying Size on Porosity, Permeability, and Elastic Bulk Modulus of Granular Porous Media: Insights From Numerical Simulations: JGR Solid Earth, v. 123, no. 12, p. 10,563-10,582.
 
 Kerimov, A., Mavko, G., Mukerji, T., and Al Ibrahim, M. A., 2018, Mechanical trapping of particles in granular media: Physical Review E, v. 97, no. 2, 19 p. [Link](https://journals.aps.org/pre/abstract/10.1103/PhysRevE.97.022907)
 
