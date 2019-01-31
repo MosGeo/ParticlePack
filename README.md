@@ -27,7 +27,7 @@ The compiled version uses a parameter file to define the simulation parameters. 
 To create a binary image from the output, Matlab code is provided in the "Post Processing" folder.
 
 <div align="center">
-    <img width=500 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/Binary.png" alt="BinaryImage" title="Binary image of a particle pack"</img>
+    <img width=300 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/BinaryImage.png" alt="BinaryImage" title="Binary image of a particle pack"</img>
 </div>
 
 ## Are you using this package? Want to provide feedback?
@@ -36,7 +36,6 @@ If you are using this package. I would love to hear from you on how you use and 
 ## Published research studies using Particula
 
 Al Ibrahim, M. A., Kerimov, A., Mukerji, T., and Mavko, G., 2018, Digital rocks with irregularly shaped grains: A simulator tool for computational rock physics: SEG Technical Program Expanded Abstracts 2018. [Link](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018JB016031)
-
 
 Kerimov, A., Mavko, G., Mukerji, T., Dvorkin, J., and Al Ibrahim, M. A., 2018, The Influence of Convex Particles' Irregular Shape and Varying Size on Porosity, Permeability, and Elastic Bulk Modulus of Granular Porous Media: Insights From Numerical Simulations: JGR Solid Earth, v. 123, no. 12, p. 10,563-10,582. [Link](https://library.seg.org/doi/abs/10.1190/segam2018-2993373.1)
 
