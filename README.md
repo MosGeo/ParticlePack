@@ -28,7 +28,7 @@ The compiled software was tested on multiple Windows 10 machines. To compile the
 The compiled version uses a parameter file to define the simulation parameters. It can run on a Windows machine. The source code can be ran inside Unity and the same parameters can be modified in the platform. The source code can be compiled on Windows, Mac, or Linux. Please check the [Wiki Page](https://github.com/MosGeo/ParticlePack/wiki) for detailed information.
 
 ## Post processing
-To create a binary image from the output, Matlab code is provided in the "Post Processing" folder.
+To create a binary image from the output, Matlab code is provided in the "Post Processing" folder. The mesh folder is also saved as an output so it can be directly used as an input for FEM solvers or be processed for 3D printing.
 
 <div align="center">
     <img width=500 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/BinaryImage.png" alt="BinaryImage" title="Binary image of a particle pack"</img>
