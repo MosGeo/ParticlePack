@@ -15,10 +15,6 @@ The software simulates the formation of three-dimensional packings of spherical 
     <img width=1000 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/Process.png" alt="Process" title="Particle Generation Process"</img>
 </div>
 
-<div align="center">
-    <img width=1000 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/PolyExample2.png" alt="Example of Grain Pack" title="Polydesperse Realistic Example"</img>
-</div>
-
 ## Requirements
 
 The compiled software was tested on multiple Windows 10 machines. To compile the source code, [Unity3D](https://unity3d.com/) is required. Version 2017.1.3 is recommended. Hardware requirements depend on the desired number of particles in the packings generated. A typical laptop specification would be suitable for 5000-10000 particles. 
@@ -26,6 +22,9 @@ The compiled software was tested on multiple Windows 10 machines. To compile the
 ## Getting started
 
 The compiled version uses a parameter file to define the simulation parameters. The source code can be ran inside Unity and the same parameters can be modified in the platform. Please check the [Wiki Page](https://github.com/MosGeo/ParticlePack/wiki) for detailed information.
+
+## Post processing
+To create a binary image from the output, Matlab code is provided in the "Post Processing" folder.
 
 ## Are you using this package? Want to provide feedback?
 If you are using this package. I would love to hear from you on how you use and what sort of modification that you would like to be seen. You can either create an Issue on Github or send me an email directly at Mustafa.Geoscientist@outlook.com
@@ -39,4 +38,8 @@ Kerimov, A., Mavko, G., Mukerji, T., and Al Ibrahim, M. A., 2018, Mechanical tra
 ## Acknowledgments
 
 We would like to thank the Stanford Rock Physics & Borehole Geophysics Project, Stanford Center for Reservoir Forecasting, and Saudi Aramco for their support and valuables discussions. We would also like to thank the Dean of School of Earth, Energy, and Environmental Sciences at Stanford University, Prof. Steve Graham, for funding.
+
+<div align="center">
+    <img width=1000 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/PolyExample2.png" alt="Example of Grain Pack" title="Polydesperse Realistic Example"</img>
+</div>
 
