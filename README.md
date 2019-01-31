@@ -38,8 +38,6 @@ To create a binary image from the output, Matlab code is provided in the "Post P
 If you are using this package. I would love to hear from you on how you use and what sort of modification that you would like to be seen. You can either create an Issue on Github or send me an email directly at Mustafa.Geoscientist@outlook.com
 
 ## Referencing
-The current publication that can be used for referencing is
-
 Al Ibrahim, M. A., Kerimov, A., Mukerji, T., and Mavko, G., 2018, Digital rocks with irregularly shaped grains: A simulator tool for computational rock physics: SEG Technical Program Expanded Abstracts 2018. [Link](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018JB016031)
 
 ## Published research studies using Particula
