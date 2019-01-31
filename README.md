@@ -27,7 +27,7 @@ The compiled version uses a parameter file to define the simulation parameters. 
 To create a binary image from the output, Matlab code is provided in the "Post Processing" folder.
 
 <div align="center">
-    <img width=500 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/Binary.png" alt="BinaryImage" title="Binary image of a particle pack"</img>
+    <img width=300 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/Binary.png" alt="BinaryImage" title="Binary image of a particle pack"</img>
 </div>
 
 ## Are you using this package? Want to provide feedback?
