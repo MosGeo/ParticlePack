@@ -3,13 +3,13 @@ Particula - Particle Pack Generator
 =====
 
 <div align="center">
-    <img width=500 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/TopImage.png" alt="TopImage" title="Image of particle pack"</img>
+    <img width=700 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/TopImage.png" alt="TopImage" title="Image of particle pack"</img>
 </div>
 
 The software simulates the formation of three-dimensional packings of spherical and non-spherical (regular and irregular) particles with prescribed size distributions. An efficient approach to create multiple realizations of non-spherical irregularly shaped particles using coherent noise modification of the spherical particle surface is introduced. The simulator generates loose and dense granular packings by shaking. Complex depositional styles (fining upward, coarsening upward, random) are possible. Furthermore, multiple beds can be simulated to produce geologically realistic grading.
 
 <div align="center">
-    <img width=500 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/Grading.png" alt="TopImage" title="Image of particle pack"</img>
+    <img width=300 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/Grading.png" alt="Grading" title="Image of grading particle pack"</img>
 </div>
 
 ## How does it work
