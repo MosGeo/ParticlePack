@@ -38,11 +38,14 @@ To create a binary image from the output, Matlab code is provided in the "Post P
 If you are using this package. I would love to hear from you on how you use and what sort of modification that you would like to be seen. You can either create an Issue on Github or send me an email directly at Mustafa.Geoscientist@outlook.com
 
 ## Referencing
-Al Ibrahim, M. A., Kerimov, A., Mukerji, T., and Mavko, G., 2018, Digital rocks with irregularly shaped grains: A simulator tool for computational rock physics: SEG Technical Program Expanded Abstracts 2018. [Link](https://library.seg.org/doi/abs/10.1190/segam2018-2993373.1)
+
+Al Ibrahim, M. A., Kerimov, A., Mukerji, T., and Mavko, G., 2019, Particula: A simulator tool for computational rock physics of granular media: Geophysics, in press. [Link](https://library.seg.org/doi/abs/10.1190/geo2018-0481.1)
 
 ## Published research studies using Particula
 
 Kerimov, A., Mavko, G., Mukerji, T., Dvorkin, J., and Al Ibrahim, M. A., 2018, The Influence of Convex Particles' Irregular Shape and Varying Size on Porosity, Permeability, and Elastic Bulk Modulus of Granular Porous Media: Insights From Numerical Simulations: JGR Solid Earth, v. 123, no. 12, p. 10,563-10,582. [Link](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018JB016031)
+
+Al Ibrahim, M. A., Kerimov, A., Mukerji, T., and Mavko, G., 2018, Digital rocks with irregularly shaped grains: A simulator tool for computational rock physics: SEG Technical Program Expanded Abstracts 2018. [Link](https://library.seg.org/doi/abs/10.1190/segam2018-2993373.1)
 
 Kerimov, A., Mavko, G., Mukerji, T., and Al Ibrahim, M. A., 2018, Mechanical trapping of particles in granular media: Physical Review E, v. 97, no. 2, 19 p. [Link](https://journals.aps.org/pre/abstract/10.1103/PhysRevE.97.022907)
 
