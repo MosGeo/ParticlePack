@@ -21,7 +21,10 @@ Discrete element method is used to pour generated particles into a container. Sh
 
 ## Requirements
 
-The compiled software was tested on multiple Windows 10 machines. To compile the source code, [Unity3D](https://unity3d.com/) is required. Version 2018.3.3 is currently recommended. Hardware requirements depend on the desired number of particles in the packings generated. A typical laptop specification would be suitable for 5000-10000 particles. 
+The compiled software was tested on multiple Windows 10 machines. To compile the source code, [Unity3D](https://unity3d.com/) is required. Version 2018.3.3 is currently recommended. Hardware requirements depend on the desired number of particles in the packings generated. A typical laptop specification would be suitable for 5000-10000 particles.
+
+## Compiling
+When compiling using Unity3D make sure that the setting "Auto Load Config File" is turned on in the WorldBuilder object (you can find it in the inspector panel). The compiled version will look automatically for the configuration file name defined in the "Config file name".
 
 ## Getting started
 
@@ -36,6 +39,10 @@ To create a binary image from the output, Matlab code is provided in the "Post P
 
 ## Are you using this package? Want to provide feedback?
 If you are using this package. I would love to hear from you on how you use and what sort of modification that you would like to be seen. You can either create an Issue on Github or send me an email directly at Mustafa.Geoscientist@outlook.com
+
+## Change log
+Version 1.13
+- Fixed a crash that occurs when more than two grain types are defined for one bed.
 
 ## Referencing
 
