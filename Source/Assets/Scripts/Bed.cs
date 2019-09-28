@@ -158,7 +158,7 @@ public class Bed {
         //Debug.Log("Simulating Bed Number " + bedNumber + " and Grain Type " + grainNumber);
         while (grains[grainNumber].nGrainsSimulated == grains[grainNumber].grainCountGoal)
         {
-            bedDistribution.removePdfValue(grainNumber);
+            //bedDistribution.removePdfValue(grainNumber);
             grainNumber = (int)bedDistribution.GetValuefromCDF(Random.value);
         }
 

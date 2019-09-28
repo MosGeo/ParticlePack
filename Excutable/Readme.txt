@@ -1,1 +1,0 @@
-The parameter file (Parameters.txt) in inside the "Particula 1.12_Data" folder. Five other examples are included. Rename files to "Parameters.txt" to run.
