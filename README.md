@@ -40,6 +40,10 @@ To create a binary image from the output, Matlab code is provided in the "Post P
 ## Are you using this package? Want to provide feedback?
 If you are using this package. I would love to hear from you on how you use and what sort of modification that you would like to be seen. You can either create an Issue on Github or send me an email directly at Mustafa.Geoscientist@outlook.com
 
+## Change log
+Version 1.13
+- Fixed a crash that occurs when more than two grain types are defined for one bed.
+
 ## Referencing
 
 Al Ibrahim, M. A., Kerimov, A., Mukerji, T., and Mavko, G., 2019, Particula: A simulator tool for computational rock physics of granular media: Geophysics, v. 84, no. 3, . F85–F95. [Link](https://library.seg.org/doi/abs/10.1190/geo2018-0481.1)
