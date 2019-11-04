@@ -26,8 +26,10 @@ grainPack.visualizeSlices(.5, .5, .5)
 subplot(1,2,2)
 grainPack.visualizeSlices([0,1], [0,1], [0,1])
 
-% Get the binary image from the object
-bwImage = grainPack.getBinaryImage();   % Cropped
+% Get the binary image and typed image from the object
+bwImage = grainPack.getBinaryImage();                         % Binary image
+labeledImage = grainPack.getLabeledImage();                   % Grain number image
+[typedImage, typeInfo, nTypes] = grainPack.getTypedImage();   % Numbers based on grain type 
 
 % Reset the cropping
 grainPack.resetSubVolume();
