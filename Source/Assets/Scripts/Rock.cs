@@ -56,7 +56,6 @@ public class Rock
             //Debug.Log("Bed " + bedNumber + " Volume = " + beds[bedNumber].volume + " and Normalized "  + beds[bedNumber].volume * beds[bedNumber].proportion);
             totalVolume += beds[bedNumber].volume * beds[bedNumber].proportion;
         }
-        //Debug.Log(totalVolume);
         return totalVolume;
 
     }

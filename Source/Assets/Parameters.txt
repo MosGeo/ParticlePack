@@ -2,13 +2,14 @@ Notes = Hello World: A simple example with mono-sized spherical particles
 -----------------------------------------------
 - Container Parameters
 Container Type = Box
-Container Scale = [5 5 5]
+Container Scale = [10 10 10.5]
 Container Dynamic Friction = 0.6
 Container Static Friction = 0.6
 Container Bounciness = 1
 Modify Scale Automatically = True
 Buffer Length = 0.1
 Estimated Porosity = 0.54
+Background Color = [255 0 0 255]
 -----------------------------------------------
 - Simulation Parameters
 Fixed Delta Time = 0.01
@@ -21,11 +22,11 @@ Target Frame Rate = 30
 Contact Offset = 0.01
 -----------------------------------------------
 - Shaking Parameters
-Shake Transversly = False
+Shake Transversly = True
 Shake Rotationally = False
 Stabilize Camera = False
-Shaking Fracton = 0.005
-Shaking Roation Fraction = 0.005
+Shaking Fracton = 0.001
+Shaking Roation Fraction = 0.001
 -----------------------------------------------
 - Folders Parameters
 Project Folder Path = ./
@@ -36,7 +37,7 @@ Override Output Folder = True
 -----------------------------------------------
 - Particle Groups
 Use Volume Proportion = False
-Grain Count Goal = 100
+Grain Count Goal = 300
 Number of Beds = 1
 -----------------------------------------------
 - Bed 1
@@ -49,7 +50,7 @@ Bed 1 Number of Grains = 1
 -- Bed 1 Grain 1
 Bed 1 Grain 1 Name = Bed 1 Grain 1
 Bed 1 Grain 1 Type = Sphere
-Bed 1 Grain 1 Parameters = Amplitude = .1, Frequency = 1, Lacunarity = .2, OctaveCount = 6, Persistence = .5, ResizeType = ByVolume
+Bed 1 Grain 1 Parameters = Amplitude = .5, Frequency = 1, Lacunarity = .2, OctaveCount = 6, Persistence = .5, ResizeType = ByVolume
 Bed 1 Grain 1 PDF = Mono
 Bed 1 Grain 1 PDF Multiplier = 1
 Bed 1 Grain 1 PDF Offset = 0

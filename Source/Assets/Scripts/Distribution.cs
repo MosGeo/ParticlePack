@@ -147,18 +147,33 @@ public class Distribution{
 
     //===================================================================
     // Convert PDF volume
-    public float GetVolume()
+
+    public delegate float VolumeCalculator(float d, float prop);
+
+    public float GetVolume(Grain.GrainType grainType=Grain.GrainType.Sphere)
     {
 
         int nDataPoints = pdfData.GetLength(0);
 
+        VolumeCalculator vc;
+        if (grainType == Grain.GrainType.Cube)
+        {
+            vc = delegate (float d, float prop)
+            { return Mathf.Pow(d, 3) * prop;};
+        }
+        else
+        {
+            vc = delegate (float d, float prop)
+            {return 4.0f / 3.0f * Mathf.PI * Mathf.Pow(d/2, 3) * prop; };
+        }
+
+
         float totalVolume = 0;
         for (int i = 0; i < nDataPoints; i++)
         {
-            float currentVolume = 4.0f / 3.0f * Mathf.PI * Mathf.Pow(pdfData[i, 0]/2, 3) * pdfData[i, 1];
+            float currentVolume = vc(pdfData[i, 0], pdfData[i, 1]);
             totalVolume += currentVolume;
         }
-
         return totalVolume;
     }
     //===================================================================

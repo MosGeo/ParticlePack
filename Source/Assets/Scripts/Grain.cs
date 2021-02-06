@@ -6,7 +6,7 @@ public class Grain
 {
     //public enum DepostionType { Random, FiningUpward, CoarseningUpward, LaminatedFining, LaminatedCoarsening };
     public enum DepostionType { Random, FiningUpward, CoarseningUpward};
-    public enum GrainType {Sphere, Realistic}
+    public enum GrainType {Sphere, Realistic, Cube}
     public enum GrainColorType {Base, Secondary, Size, Random}
 
     [Header("Distribution")]
@@ -86,23 +86,17 @@ public class Grain
         grainObject.name = "Grain " + (grainGroupNumber+1) + " - " + grainName;
     }
     //===================================================================
-
-    //===================================================================
     public void setGrainCountGoal(int grainCountGoal)
     {
         this.grainCountGoal = grainCountGoal;
     }
     //===================================================================
-
-    //===================================================================
     // Calculate the volume of the distribution
     public float GetVolume()
     {
-        float volume = distribution.GetVolume();
+        float volume = distribution.GetVolume(Type);
         return volume;
     }
-    //===================================================================
-
     //===================================================================
     // Get scale value based on depostion type
     private float GetScaleValueSample()
@@ -129,8 +123,6 @@ public class Grain
         }
         return scaleValue;
     }
-    //===================================================================
-
     //===================================================================
     // Get grain color
     private Color GetGrainColor(float grainScale)
@@ -160,6 +152,11 @@ public class Grain
 
     public Color GetColorFromGraident(float value, float minValue, float maxValue, Color baseColor, Color secondaryColor)
     {
+        if (minValue==maxValue)
+        {
+            return baseColor;
+        }
+
         float normalizedValue = (value - minValue) / (maxValue - minValue);
         Gradient g;
         GradientColorKey[] gck;
@@ -181,7 +178,6 @@ public class Grain
         return usedColor;
 
     }
-
     //===================================================================
     public GameObject createGrain()
     {
@@ -209,16 +205,11 @@ public class Grain
         return newGrain;
     }
     //===================================================================
-
-
-    //===================================================================
     public int GetGrainObjectsNumber()
     {
         int nGrains = grainObject.GetComponent<Transform>().childCount;
         return nGrains;
     }
-    //===================================================================
-
     //===================================================================
     public GameObject[] GetGrainObjects()
     {
@@ -232,8 +223,6 @@ public class Grain
         return grainObjects;
     }
     //===================================================================
-
-    //===================================================================
     public void WakeUp()
     {
         int nGrains = GetGrainObjectsNumber();
@@ -242,8 +231,6 @@ public class Grain
             grainObject.GetComponent<Transform>().GetChild(grainNumber).GetComponent<Rigidbody>().WakeUp();
         }
     }
-    //===================================================================
-
     //===================================================================
     public PhysicMaterial buildPhysicsMaterial(float dynamicFriction, float staticFriction, float bounciness, PhysicMaterialCombine frictionCombine, PhysicMaterialCombine bounceCombine)
     {

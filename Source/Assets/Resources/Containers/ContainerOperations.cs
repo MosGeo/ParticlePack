@@ -20,10 +20,7 @@ public class ContainerOperations : MonoBehaviour {
     void Start () {
 
     }
-    //===================================================================
-
-
-    //===================================================================
+    // ==============================================================================================================================================
     // Update is called once per frame
     void Update () {
         
@@ -53,28 +50,19 @@ public class ContainerOperations : MonoBehaviour {
         }
 
     }
-    //===================================================================
-
-
-    //===================================================================
+    // ==============================================================================================================================================
     public Vector3 getInitialCameraPosition()
     {
         float cameraHight = .8f * scale.y + scale.y;
         float cameraZposition = scale.z - 3.5f*scale.z;
         return new Vector3(0, cameraHight, cameraZposition);
     }
-    //===================================================================
-
-
-    //===================================================================
+    // ==============================================================================================================================================
     public Vector3 getInitialLookLocation()
     {
        return new Vector3(0, scale.y / 2, 0);
     }
-    //===================================================================
-
-
-    //===================================================================
+    // ==============================================================================================================================================
     public PhysicMaterial buildPhysicsMaterial(float dynamicFriction, float staticFriction, float bounciness, PhysicMaterialCombine frictionCombine, PhysicMaterialCombine bounceCombine)
     {
         PhysicMaterial physicsMaterial = new PhysicMaterial();
@@ -85,26 +73,17 @@ public class ContainerOperations : MonoBehaviour {
         physicsMaterial.bounceCombine = bounceCombine;
         return physicsMaterial;
     }
-    //===================================================================
-
-
-    //===================================================================
+    // ==============================================================================================================================================
     public void setContainerScale(Vector3 newScale)
     {
         scale = newScale;
     }
-    //===================================================================
-
-
-    //===================================================================
+    // ==============================================================================================================================================
     public Vector3 getContainerScale(Vector3 newScale)
     {
         return scale;
     }
-    //===================================================================
-
-
-    //===================================================================
+    // ==============================================================================================================================================
     public void applyContainerScale()
     {
         gameObject.transform.localScale = scale;
@@ -126,6 +105,17 @@ public class ContainerOperations : MonoBehaviour {
     // Overides
     public virtual Vector3 getNewLocation(GameObject grainPrefab) { return new Vector3(); }
     public virtual Vector3  GetScaleFromVolume(float grainVolume, float porosity){return new Vector3();}
+    // ==============================================================================================================================================
+    public  void SetVisibility(bool isVisible)
+    {
+        int nChildren = gameObject.transform.childCount;
+        for (int i = 0; i < nChildren; i++)
+        {
+            gameObject.transform.GetChild(i).gameObject.GetComponent<MeshRenderer>().enabled = isVisible;
+
+        }
+    }
+    // ==============================================================================================================================================
 
 
 }

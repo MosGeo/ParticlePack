@@ -408,7 +408,7 @@ public class CylinderOperations : ContainerOperations {
     public override Vector3 GetScaleFromVolume(float grainVolume, float porosity)
     {
 
-        float expectedTotalVolume = grainVolume + porosity * grainVolume / (1 - porosity);
+        float expectedTotalVolume = grainVolume / (1 - porosity);
         //Debug.Log("Grain Volume + Porosity " + expectedTotalVolume);
         float scalingFactor = Mathf.Pow(expectedTotalVolume / GetVolume(), 1f / 3f);
         //Debug.Log("scale " + scale);

@@ -24,8 +24,6 @@ public class CameraController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
-
         float rotationSpeed = 5f / Time.timeScale;
         float translationSpeed = 5f / Time.timeScale;
 

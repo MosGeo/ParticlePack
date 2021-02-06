@@ -14,17 +14,15 @@ public class BoxOperations : ContainerOperations {
     string containerLidTag = "ContainerLid";
     string containerBottomTag = "ContainerBottom";
 
-
     // Used Properties
     string materialName = "Container";
-
+    // ==============================================================================================================================================
     void Start()
     {
         buildContainer();
         applyContainerScale();
     }
-
-
+    // ==============================================================================================================================================
     // Build the box
     void buildContainer()
     {
@@ -32,7 +30,6 @@ public class BoxOperations : ContainerOperations {
         gameObject.tag = containerTag;
         Material renderMaterial = Resources.Load("Material\\" + materialName) as Material;
         PhysicMaterial physMaterial = buildPhysicsMaterial(containerDynamicFriction, containerStaticFriction, containerBounciness, containerFrictionCombine, containerBounceCombine);
-
 
         gameObject.AddComponent<Rigidbody>();
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
@@ -77,6 +74,7 @@ public class BoxOperations : ContainerOperations {
         gameObject.GetComponent<ContainerOperations>().Lid = TopSide;
     }
 
+    // ==============================================================================================================================================
     // Build one side of the box
     GameObject buildSide(Vector3 location, Vector3 scale, Material renderMaterial, PhysicMaterial physMaterial, string name, string tag)
     {
@@ -90,9 +88,7 @@ public class BoxOperations : ContainerOperations {
         boxSide.tag = tag;
         return boxSide;
     }
-
-
-    //===================================================================
+    // ==============================================================================================================================================
     public override Vector3 getNewLocation(GameObject grainPrefab)
     {
         Vector3 grainLocation;
@@ -133,20 +129,17 @@ public class BoxOperations : ContainerOperations {
 
         return grainLocation;
     }
-    //===================================================================
-
-    //===================================================================
+    // ==============================================================================================================================================
     public float GetVolume()
     {
         float volume =  scale.x * scale.z  * scale.y;
         return volume;
     }
-    //===================================================================\
-
-    //===================================================================
+    // ==============================================================================================================================================
     public override Vector3 GetScaleFromVolume(float grainVolume, float porosity)
     {
-        float expectedTotalVolume = grainVolume + porosity * grainVolume / (1-porosity);
+        //float expectedTotalVolume = grainVolume + porosity * grainVolume;
+        float expectedTotalVolume = grainVolume / (1-porosity);
         //Debug.Log("Grain Volume + Porosity " + expectedTotalVolume);
         float scalingFactor = Mathf.Pow(expectedTotalVolume / GetVolume(), 1f/3f);
         //Debug.Log("scale " + scale);
@@ -154,6 +147,7 @@ public class BoxOperations : ContainerOperations {
         scale = scale * scalingFactor;
         return scale;
     }
-    //===================================================================
+    // ==============================================================================================================================================
+
 
 }
