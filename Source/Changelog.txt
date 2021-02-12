@@ -18,13 +18,13 @@ Addition:
 Version 1.2
 
 Changes:
-- Included
+- Automatic rescaling of contianer algorithm changed.
 
 Fixes:
-- Fixed coloring of grains when mono distribution is used with gradient coloring.
 
 Addition:
 - Keyboard shortcut P: toggle white and black background for publications.
 - Keybaord shortcut O: toggle box visiblity for publications.
-- Added cube grains.
+- Added Cube grains.
+- Added DeformedCube grains.
 ===================================================================================================
