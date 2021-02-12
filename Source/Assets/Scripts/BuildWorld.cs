@@ -14,7 +14,7 @@ public class BuildWorld : MonoBehaviour {
     public Vector3 ContainerScale = new Vector3(1, 1, 1);
     public bool modifyScaleAutomatically = false;
     public float bufferLength = 0f;
-    [Range(0, 2f)]
+    [Range(0, 0.99f)]
     public float estimatedPorosity = .30f;
     [Range(0,1)]
     public float containerDynamicFriction = 0.6f;
@@ -125,7 +125,9 @@ public class BuildWorld : MonoBehaviour {
         if (modifyScaleAutomatically == true)
         {
             float grainVolume = rock.GetVolume() * rock.grainCountGoal;
+            Debug.Log(grainVolume);
             ContainerScale = ContainerPrefab.GetComponent<ContainerOperations>().GetScaleFromVolume(grainVolume, estimatedPorosity);
+            Debug.Log(ContainerScale);
             ContainerPrefab.GetComponent<ContainerOperations>().setContainerScale(ContainerScale);
         }
 

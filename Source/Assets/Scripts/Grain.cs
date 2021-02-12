@@ -6,7 +6,7 @@ public class Grain
 {
     //public enum DepostionType { Random, FiningUpward, CoarseningUpward, LaminatedFining, LaminatedCoarsening };
     public enum DepostionType { Random, FiningUpward, CoarseningUpward};
-    public enum GrainType {Sphere, Realistic, Cube}
+    public enum GrainType {Sphere, Realistic, Cube, DeformedCube}
     public enum GrainColorType {Base, Secondary, Size, Random}
 
     [Header("Distribution")]

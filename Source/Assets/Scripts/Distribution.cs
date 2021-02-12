@@ -156,7 +156,7 @@ public class Distribution{
         int nDataPoints = pdfData.GetLength(0);
 
         VolumeCalculator vc;
-        if (grainType == Grain.GrainType.Cube)
+        if (grainType == Grain.GrainType.Cube || grainType== Grain.GrainType.DeformedCube)
         {
             vc = delegate (float d, float prop)
             { return Mathf.Pow(d, 3) * prop;};

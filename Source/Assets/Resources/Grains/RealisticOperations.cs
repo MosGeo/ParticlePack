@@ -23,8 +23,7 @@ public class RealisticOperations : GrainOperations {
 
     #endregion
 
-
-    // Use this for initialization
+    //===============================================================================================================================================
     void Start()
     {
         // Create Perlin Noise
@@ -90,9 +89,7 @@ public class RealisticOperations : GrainOperations {
         gameObject.GetComponent<Rigidbody>().ResetCenterOfMass();
         UpdateGrainProperties();
     }
-
-    //===================================================================
-
+    //===============================================================================================================================================
     Mesh CreateConvexMesh(System.Collections.Generic.IEnumerable<Vector3> stars)
     {
         Mesh m = new Mesh();
@@ -116,9 +113,7 @@ public class RealisticOperations : GrainOperations {
         m.RecalculateNormals();
         return m;
     }
-
-
-    //===================================================================
+    //===============================================================================================================================================
     public float GetBestMultiplier(Mesh mesh, float volumeGoal, ResizeType resizeType)
     {
         MinMaxFloat minMaxRadius;
@@ -168,9 +163,7 @@ public class RealisticOperations : GrainOperations {
         return 1f;
 
     }
-    //===================================================================
-
-    //===================================================================
+    //===============================================================================================================================================
     public MinMaxFloat GetMinMaxRadius(Mesh mesh)
     {
         int nVerticies = mesh.vertices.Length;
@@ -196,10 +189,7 @@ public class RealisticOperations : GrainOperations {
         return minMaxRadius;
     }
 
-    //===================================================================
-
-
-        //===================================================================
+    //===============================================================================================================================================
     public override void ProcessParametersString(string parametersString) {
 
         string[] parameters = parametersString.Split(',');
@@ -223,9 +213,7 @@ public class RealisticOperations : GrainOperations {
         }
 
     }
-    //===================================================================
-
-    //===================================================================
+    //===============================================================================================================================================
     private PerlinNoiseOptions GetPerlinNoiseOptions(Vector2 amplitudeRange, Vector2 frequencyRange, Vector2 lacunarityRange, Vector2 octaveCountRange, Vector2 persistenceRange, int seed)
     {
         PerlinNoiseOptions perlinOptions = new PerlinNoiseOptions();
@@ -239,11 +227,7 @@ public class RealisticOperations : GrainOperations {
         perlinOptions.quality = LibNoise.QualityMode.High;
         return perlinOptions;
     }
-    //===================================================================
-
-
-
-    //===================================================================
+    //===============================================================================================================================================
     private struct PerlinNoiseOptions
     {
         public float amplitude;
@@ -254,13 +238,13 @@ public class RealisticOperations : GrainOperations {
         public int seed;
         public LibNoise.QualityMode quality;
     }
-    //===================================================================
-
+    //===============================================================================================================================================
     public struct MinMaxFloat
     {
         public float min;
         public float max;
     }
+    //===============================================================================================================================================
 
 
 }
