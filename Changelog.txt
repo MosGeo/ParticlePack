@@ -1,0 +1,31 @@
+VERSION 1.0
+- Initial version
+===================================================================================================
+VERSION 1.1
+
+Changes:
+- Disabled surface area calculation pending calculation optimizations
+- Realistic grains calculations of the convex hull added to improve results.
+
+Fixes:
+- First a bug where fining and coarsening upward where switched.
+- Fining upward had a bug that resulted in a very small grain at the last depeosition step for the grain group.
+- Fixed a bug in coloring grains based on size.
+
+Addition:
+- PDF data is normalized automatically now to prevent issues.
+===================================================================================================
+Version 1.2
+
+Changes:
+- Automatic rescaling of contianer algorithm changed.
+
+Fixes:
+
+Addition:
+- Keyboard shortcut P: toggle white and black background for publications. Added the background color in the parameter file. This is a breaking change. Old parameter files will need to be updated manually.
+- Keybaord shortcut O: toggle box visiblity for publications.
+- Fixed spelling mistakes with the parameters files (Bounce Threshold, Shake Transversely, Shaking Fraction, Shaking Rotation). This is a breaking change. Old parameter files will need to be updated manually.
+- Added Cube grains. No parameters are needed.
+- Added DeformedCube grains. The parameters for these are similar to the realistic grains.
+===================================================================================================
