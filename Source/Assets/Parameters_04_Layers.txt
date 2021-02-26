@@ -9,23 +9,24 @@ Container Bounciness = 1
 Modify Scale Automatically = True
 Buffer Length = 0.1
 Estimated Porosity = 0.54
+Background Color = [0 0 0 255]
 -----------------------------------------------
 - Simulation Parameters
 Fixed Delta Time = 0.01
 Solver Iteration Count = 20
 Velocity Solver Iteration Count = 10
 Sleep Threshold = 0.5
-Bounce Threashold = 20
+Bounce Threshold = 20
 Time Scale = 5
 Target Frame Rate = 30
 Contact Offset = 0.01
 -----------------------------------------------
 - Shaking Parameters
-Shake Transversly = False
+Shake Transversely = False
 Shake Rotationally = False
 Stabilize Camera = False
-Shaking Fracton = 0.005
-Shaking Roation Fraction = 0.005
+Shaking Fraction = 0.005
+Shaking Rotation Fraction = 0.005
 -----------------------------------------------
 - Folders Parameters
 Project Folder Path = ./
