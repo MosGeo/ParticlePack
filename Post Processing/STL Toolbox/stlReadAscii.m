@@ -48,7 +48,7 @@ n = str2num(normals(:,13:end));
 % read the vertex coordinates (vertices)
 vertices = char(content(logical(strncmp(content,'vertex',6))));
 v = str2num(vertices(:,7:end));
-nvert = length(vertices); % number of vertices
+nvert = size(vertices,1); % number of vertices
 nfaces = sum(strcmp(content,'endfacet')); % number of faces
 if (nvert == 3*nfaces)
     f = reshape(1:nvert,[3 nfaces])'; % create faces
