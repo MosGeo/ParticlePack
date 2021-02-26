@@ -21,7 +21,7 @@ Discrete element method is used to pour generated particles into a container. Sh
 
 ## Requirements
 
-The compiled software was tested on multiple Windows 10 machines. To compile the source code, [Unity3D](https://unity3d.com/) is required. Version 2018.3.3 is currently recommended. Hardware requirements depend on the desired number of particles in the packings generated. A typical laptop specification would be suitable for 5000-10000 particles.
+The compiled software was tested on multiple Windows 10 machines. To compile the source code, [Unity3D](https://unity3d.com/) is required. Version 2020.2 is currently recommended. Hardware requirements depend on the desired number of particles in the packings generated. A typical laptop specification would be suitable for 5000-10000 particles.
 
 ## Compiling
 When compiling using Unity3D make sure that the setting "Auto Load Config File" is turned on in the WorldBuilder object (you can find it in the inspector panel). The compiled version will look automatically for the configuration file name defined in the "Config file name".
