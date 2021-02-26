@@ -8,6 +8,8 @@ Particula - Particle Pack Generator
 
 The software simulates the formation of three-dimensional packings of spherical and non-spherical (regular and irregular) particles with prescribed size distributions. An efficient approach to create multiple realizations of non-spherical irregularly shaped particles using coherent noise modification of the spherical particle surface is introduced. The simulator generates loose and dense granular packings by shaking. Complex depositional styles (fining upward, coarsening upward, random) are possible. Furthermore, multiple beds can be simulated to produce geologically realistic grading.
 
+You can download and run the software here: [Release 1.2](https://github.com/MosGeo/ParticlePack/releases/tag/v1.2)
+
 <div align="center">
     <img width=800 src="https://github.com/MosGeo/ParticlePack/blob/master/ReadmeFiles/Grading.png" alt="Grading" title="Image of grading particle pack"</img>
 </div>
@@ -21,7 +23,7 @@ Discrete element method is used to pour generated particles into a container. Sh
 
 ## Requirements
 
-The compiled software was tested on multiple Windows 10 machines. To compile the source code, [Unity3D](https://unity3d.com/) is required. Version 2018.3.3 is currently recommended. Hardware requirements depend on the desired number of particles in the packings generated. A typical laptop specification would be suitable for 5000-10000 particles.
+The compiled software was tested on multiple Windows 10 machines. To compile the source code, [Unity3D](https://unity3d.com/) is required. Version 2020.2 is currently recommended. Hardware requirements depend on the desired number of particles in the packings generated. A typical laptop specification would be suitable for 5000-10000 particles.
 
 ## Compiling
 When compiling using Unity3D make sure that the setting "Auto Load Config File" is turned on in the WorldBuilder object (you can find it in the inspector panel). The compiled version will look automatically for the configuration file name defined in the "Config file name".
