@@ -42,7 +42,7 @@ public class BuildWorld : MonoBehaviour {
     public float contactOffset = .001f;
 
     [Header("Shaking Parameters")]
-    public bool shakeTransversly = false;
+    public bool shakeTransversely = false;
     public bool shakeRotationaly = false;
     public bool stabilizeCamera = false;
     public float ShakingFraction = .002f;
@@ -125,9 +125,7 @@ public class BuildWorld : MonoBehaviour {
         if (modifyScaleAutomatically == true)
         {
             float grainVolume = rock.GetVolume() * rock.grainCountGoal;
-            Debug.Log(grainVolume);
             ContainerScale = ContainerPrefab.GetComponent<ContainerOperations>().GetScaleFromVolume(grainVolume, estimatedPorosity);
-            Debug.Log(ContainerScale);
             ContainerPrefab.GetComponent<ContainerOperations>().setContainerScale(ContainerScale);
         }
 
@@ -214,7 +212,7 @@ public class BuildWorld : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.H)) {ShakingFraction -= .0001f; }
         if (Input.GetKeyDown(KeyCode.N)) {ShakingRotationFraction += .0001f;}
         if (Input.GetKeyDown(KeyCode.B)) { ShakingRotationFraction -= .0001f;}
-        if (Input.GetKeyUp(KeyCode.K)) { shakeTransversly = !shakeTransversly;}
+        if (Input.GetKeyUp(KeyCode.K)) { shakeTransversely = !shakeTransversely;}
         if (Input.GetKeyUp(KeyCode.M)) { shakeRotationaly = !shakeRotationaly;}
 
         if (Input.GetKeyUp(KeyCode.R)) { automaticDepostion = !automaticDepostion;}
@@ -242,7 +240,7 @@ public class BuildWorld : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F1)) { Application.Quit(); }
 
         // Shaker
-        shaker.shakeBox(shakeTransversly, shakeRotationaly, ShakingFraction, ShakingRotationFraction);
+        shaker.shakeBox(shakeTransversely, shakeRotationaly, ShakingFraction, ShakingRotationFraction);
         OnValidate();
 
     }
@@ -386,17 +384,17 @@ public class BuildWorld : MonoBehaviour {
         SolverIterationCount = configFile.getInteger("Solver Iteration Count");
         velocitySolverIterationCount = configFile.getInteger("Velocity Solver Iteration Count");
         SleepThreshold = configFile.getFloat("Sleep Threshold");
-        BounceThreshold = configFile.getFloat("Bounce Threashold");
+        BounceThreshold = configFile.getFloat("Bounce Threshold");
         TimeScale = configFile.getFloat("Time Scale");
         TargetFrameRate = configFile.getInteger("Target Frame Rate");
         contactOffset = configFile.getFloat("Contact Offset");
 
         // Shaking
-        shakeTransversly = configFile.getBoolean("Shake Transversly");
+        shakeTransversely = configFile.getBoolean("Shake Transversely");
         shakeRotationaly = configFile.getBoolean("Shake Rotationally");
         stabilizeCamera = configFile.getBoolean("Stabilize Camera");
-        ShakingFraction = configFile.getFloat("Shaking Fracton");
-        ShakingRotationFraction = configFile.getFloat("Shaking Roation Fraction");
+        ShakingFraction = configFile.getFloat("Shaking Fraction");
+        ShakingRotationFraction = configFile.getFloat("Shaking Rotation Fraction");
 
         // Folder
         projectFolderPath = configFile.getString("Project Folder Path");
@@ -501,7 +499,7 @@ public class BuildWorld : MonoBehaviour {
         rawData.AppendLine("Solver Iteration Count" + " = " + SolverIterationCount);
         rawData.AppendLine("Velocity Solver Iteration Count" + " = " + velocitySolverIterationCount);
         rawData.AppendLine("Sleep Threshold" + " = " + SleepThreshold);
-        rawData.AppendLine("Bounce Threashold" + " = " + BounceThreshold);
+        rawData.AppendLine("Bounce Threshold" + " = " + BounceThreshold);
         rawData.AppendLine("Time Scale" + " = " + TimeScale);
         rawData.AppendLine("Target Frame Rate" + " = " + TargetFrameRate);
         rawData.AppendLine("Contact Offset" + " = " + contactOffset);
@@ -509,11 +507,11 @@ public class BuildWorld : MonoBehaviour {
 
         // Shaking Parameters
         rawData.AppendLine("- Shaking Parameters");
-        rawData.AppendLine("Shake Transversly" + " = " + shakeTransversly.ToString());
+        rawData.AppendLine("Shake Transversely" + " = " + shakeTransversely.ToString());
         rawData.AppendLine("Shake Rotationally" + " = " + shakeRotationaly.ToString());
         rawData.AppendLine("Stabilize Camera" + " = " + stabilizeCamera.ToString());
-        rawData.AppendLine("Shaking Fracton" + " = " + ShakingFraction);
-        rawData.AppendLine("Shaking Roation Fraction" + " = " + ShakingRotationFraction);
+        rawData.AppendLine("Shaking Fraction" + " = " + ShakingFraction);
+        rawData.AppendLine("Shaking Rotation Fraction" + " = " + ShakingRotationFraction);
         rawData.AppendLine("-----------------------------------------------");
 
         // Folder Parameters
