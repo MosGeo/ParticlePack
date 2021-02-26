@@ -21,13 +21,13 @@ The software simulates the formation of three-dimensional packings of spherical 
 
 2. Running the executable:
 
-The executable can be ran using “Particula.exe” in the “Executable” folder. The parameter file can be modified for the simulation is located in the “Particula_Data” folder. The parameters are defined below. Keyboard shortcut can be used to interactively control the simulation. The shortcuts are defined below. PDF files can be added or modified to define the grain size distribution. They are located in the "PDFs" folder. We suggest the use of NotePad++ to modify the parameter file and the PDF files.
+Download the executable from the release tab in GitHub. The executable can be ran using “Particula.exe” in the “Executable” folder. The parameter file can be modified for the simulation is located in the “Particula_Data” folder. The parameters are defined below. Keyboard shortcut can be used to interactively control the simulation. The shortcuts are defined below. PDF files can be added or modified to define the grain size distribution. They are located in the "PDFs" folder. We suggest the use of NotePad++ to modify the parameter file and the PDF files.
 
 ========================================================================================
 
 3. Modifying and compiling the source code:
 
-The code has to be compiled in Unity. We recommend downloading version 2018.3 (https://unity3d.com/). Installation of Unity is straight forward. No optional modules are required. Along with familiarity with C#, which is the scripting language in unity, it is highly recommended that you have some familiarly of the basics of Unity before modifying the code. We recommend going through the Roll a Ball and Space Shooter tutorials.
+The code has to be compiled in Unity. We recommend downloading version 2020.2 (https://unity3d.com/). Installation of Unity is straight forward. No optional modules are required. Along with familiarity with C#, which is the scripting language in unity, it is highly recommended that you have some familiarly of the basics of Unity before modifying the code. We recommend going through the Roll a Ball and Space Shooter tutorials.
 
 ========================================================================================
 
@@ -46,6 +46,7 @@ If the executable is used, a parameter file is used to provide the input to the 
 | Modify Scale Automatically | Resize the container based on the grain volume   | Boolean          | True            |
 | Estimated Porosity         | Estimated porosity used in automatic rescaling   | Scaler (fraction)| 0.45            |
 | Buffer Length              | Edge to exclude in the deposition                | Scaler (fraction)| 0.1             |
+| Background Color           | Color of the background of the software          | Vector           | [255 255 255]   |
 
 -------------------------------------------- Simulation Parameters --------------------------------------------
 | Parameter                       | Explanation                                         | Value type       | Example    |
@@ -62,7 +63,7 @@ If the executable is used, a parameter file is used to provide the input to the 
 -------------------------------------------- Shaking Parameters --------------------------------------------
 | Parameter                       | Explanation                                         | Value type       | Example    |
 | --------------------------------|:----------------------------------------------------|:-----------------|:-----------|
-| Shake Transversly               | Activate/deactivate transverse shaking              | Boolean          | False      |
+| Shake Transversely               | Activate/deactivate transverse shaking             | Boolean          | False      |
 | Shake Rotationally              | Activate/deactivate rotational shaking              | Boolean          | False      |
 | Stabilize Camera                | Stabilize camera while shaking                      | Boolean          | True       |
 | Shaking Fraction                | Fraction with respect to radius (higher: more shake)| Scaler (fraction)| 0.001      |
@@ -112,8 +113,8 @@ If the executable is used, a parameter file is used to provide the input to the 
 | Bed x Grain y Friction Combine        | Average, Minimum, Maximum, Multiply         | (Selection)      | Average       |
 | Bed x Grain y Bounce Combine          | Average, Minimum, Maximum, Multiply         | (Selection)      | Average       |
 | Bed x Grain y Color Type              | Size, Base, Secondary, Random               | (Selection)      | Size          |
-| Bed x Grain y Base Color              | First color in RGB (0-255)                  | 3D Vector        | [255 128 0]   |
-| Bed x Grain y Secondary Color         | Coefficient of restitution (0: in elastic)  | 3D Vector        | [255 128 0]   |
+| Bed x Grain y Base Color              | First color in RGB (0-255)                  | Vector           | [255 128 0]   |
+| Bed x Grain y Secondary Color         | Coefficient of restitution (0: in elastic)  | Vector           | [255 128 0]   |
 
 
 -------------------------------------------- Deposition Parameters --------------------------------------------
@@ -132,12 +133,14 @@ If the executable is used, a parameter file is used to provide the input to the 
 5. Keyboard shortcuts:
 
 ---------------------  View ---------------------
-| Shortcut              | Functionality         | Notes |
-| ----------------------|:----------------------|:----- |
-| Tab                   | Reset view            |       |
-| w,s,a,d               | Move point of view    |       |
-| Up,Down,Left,Right    | Rotate point of view  |       |
-| PageUp, PageDown      | Zoom in/out           |       |
+| Shortcut              | Functionality          | Notes |
+| ----------------------|:-----------------------|:----- |
+| Tab                   | Reset view             |       |
+| w,s,a,d               | Move point of view     |       |
+| Up,Down,Left,Right    | Rotate point of view   |       |
+| PageUp, PageDown      | Zoom in/out            |       |
+| p			| Switch background color|       |
+| o                     | Hide/show container    |       |
 
 --------------------- Deposition ---------------------
 | Shortcut      | Functionality                  | Notes |
