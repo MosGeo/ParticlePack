@@ -1,7 +1,7 @@
-Notes = Hello World: A simple example with mono-sized spherical particles
+Notes = MultipleBeds: A simple example with 2 beds
 -----------------------------------------------
 - Container Parameters
-Container Type = Box
+Container Type = Cylinder
 Container Scale = [5 5 5]
 Container Dynamic Friction = 0.6
 Container Static Friction = 0.6
@@ -25,8 +25,8 @@ Contact Offset = 0.01
 Shake Transversely = False
 Shake Rotationally = False
 Stabilize Camera = False
-Shaking Fraction = 0.005
-Shaking Rotation Fraction = 0.005
+Shaking Fraction = 0.01
+Shaking Rotation Fraction = 0.001
 -----------------------------------------------
 - Folders Parameters
 Project Folder Path = ./
@@ -37,12 +37,12 @@ Override Output Folder = True
 -----------------------------------------------
 - Particle Groups
 Use Volume Proportion = False
-Grain Count Goal = 100
-Number of Beds = 1
+Grain Count Goal = 200
+Number of Beds = 2
 -----------------------------------------------
 - Bed 1
 Bed 1 Name = Bed 1
-Bed 1 Proportion = 1
+Bed 1 Proportion = 0.5
 Bed 1 Wait After Deposition = 3
 Bed 1 Cement After Deposition = False
 Bed 1 Disappear After Deposition = False
@@ -51,14 +51,14 @@ Bed 1 Number of Grains = 1
 Bed 1 Grain 1 Name = Bed 1 Grain 1
 Bed 1 Grain 1 Type = Sphere
 Bed 1 Grain 1 Parameters = Amplitude = .1, Frequency = 1, Lacunarity = .2, OctaveCount = 6, Persistence = .5, ResizeType = ByVolume
-Bed 1 Grain 1 PDF = Mono
+Bed 1 Grain 1 PDF = Uniform
 Bed 1 Grain 1 PDF Multiplier = 1
 Bed 1 Grain 1 PDF Offset = 0
 Bed 1 Grain 1 Density = 2650
 Bed 1 Grain 1 Exact Vertical Creation = False
 Bed 1 Grain 1 Disappear At Bottom = False
 Bed 1 Grain 1 Proportion = 1
-Bed 1 Grain 1 Deposition Type = Random
+Bed 1 Grain 1 Deposition Type = FiningUpward
 Bed 1 Grain 1 Dynamic Friction = 0.6
 Bed 1 Grain 1 Static Friction = 0.6
 Bed 1 Grain 1 Bounciness = 0.1
@@ -68,6 +68,35 @@ Bed 1 Grain 1 Color Type = Size
 Bed 1 Grain 1 Base Color = [255 0 0 0]
 Bed 1 Grain 1 Secondary Color = [198.7241 255 0 0]
 Bed 1 Grain 1 Scale = [1 1 1]
+-----------------------------------------------
+- Bed 2
+Bed 2 Name = Bed 2
+Bed 2 Proportion = 0.5
+Bed 2 Wait After Deposition = 3
+Bed 2 Cement After Deposition = False
+Bed 2 Disappear After Deposition = False
+Bed 2 Number of Grains = 1
+-- Bed 2 Grain 1
+Bed 2 Grain 1 Name = Bed 2 Grain 1
+Bed 2 Grain 1 Type = Sphere
+Bed 2 Grain 1 Parameters = Amplitude = .1, Frequency = 1, Lacunarity = .2, OctaveCount = 6, Persistence = .5, ResizeType = ByVolume
+Bed 2 Grain 1 PDF = Uniform
+Bed 2 Grain 1 PDF Multiplier = 1
+Bed 2 Grain 1 PDF Offset = 0
+Bed 2 Grain 1 Density = 2650
+Bed 2 Grain 1 Exact Vertical Creation = False
+Bed 2 Grain 1 Disappear At Bottom = False
+Bed 2 Grain 1 Proportion = 1
+Bed 2 Grain 1 Deposition Type = FiningUpward
+Bed 2 Grain 1 Dynamic Friction = 0.6
+Bed 2 Grain 1 Static Friction = 0.6
+Bed 2 Grain 1 Bounciness = 0.1
+Bed 2 Grain 1 Friction Combine = Average
+Bed 2 Grain 1 Bounce Combine = Average
+Bed 2 Grain 1 Color Type = Size
+Bed 2 Grain 1 Base Color = [255 0 0 0]
+Bed 2 Grain 1 Secondary Color = [198.7241 255 0 0]
+Bed 2 Grain 1 Scale = [1 1 1]
 -----------------------------------------------
 - Deposition Parameters
 Automatic Deposition = True
