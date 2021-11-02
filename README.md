@@ -14,7 +14,7 @@ The software simulates the formation of three-dimensional packings of spherical 
 </div>
 
 ## Download and run
-You can download and run the software here: [Release 1.2](https://github.com/MosGeo/ParticlePack/releases/tag/v1.2)
+You can download and run the software here: [Release 1.3](https://github.com/MosGeo/ParticlePack/releases/tag/v1.3)
 
 ## How does it work
 Discrete element method is used to pour generated particles into a container. Shaking can be applied to produce denser packs.
