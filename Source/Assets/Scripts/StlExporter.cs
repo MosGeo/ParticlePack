@@ -11,6 +11,9 @@ public class StlExporter
 
         StringBuilder sb = new StringBuilder();
         sb.Append("solid Grains" + "\n");
+        System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+
+
 
         for (int objectNumber = 0; objectNumber < gameObjectsToSave.Length; objectNumber++)
         {

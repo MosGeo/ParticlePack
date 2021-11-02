@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Globalization;
 
 public class ParameterGroup
 {
@@ -81,14 +82,14 @@ public class ParameterGroup
     //===================================================================
     public float getFloat(string parameterNameString) {
         int results = System.Array.FindIndex(parameterName, s => s.Equals(parameterNameString));
-        return (float.Parse(parameterValue[results]));
+        return (float.Parse(parameterValue[results], CultureInfo.InvariantCulture));
     }
     //===================================================================
 
     //===================================================================
     public int getInteger(string parameterNameString) {
         int results = System.Array.FindIndex(parameterName, s => s.Equals(parameterNameString));
-        return (int.Parse(parameterValue[results]));
+        return (int.Parse(parameterValue[results], CultureInfo.InvariantCulture));
     }
     //===================================================================
 
@@ -121,7 +122,7 @@ public class ParameterGroup
         string[] resultsString = parameterValue[results].Split(' ');
         resultsString[0] = resultsString[0].Remove(0, 1);
         resultsString[1] = resultsString[1].Remove(resultsString[1].Length - 1);
-        Vector2 resultValue = new Vector2(float.Parse(resultsString[0]), float.Parse(resultsString[1]));
+        Vector2 resultValue = new Vector2(float.Parse(resultsString[0], CultureInfo.InvariantCulture), float.Parse(resultsString[1], CultureInfo.InvariantCulture));
         return resultValue;
     }
 
@@ -140,13 +141,13 @@ public class ParameterGroup
         resultsString[0] = resultsString[0].Remove(0, 1);
         resultsString[3] = resultsString[3].Remove(resultsString[3].Length - 1);
 
-        float r = float.Parse(resultsString[0])/ 255f;
+        float r = float.Parse(resultsString[0], CultureInfo.InvariantCulture) / 255f;
 
-        float g = float.Parse(resultsString[1])/ 255f;
+        float g = float.Parse(resultsString[1], CultureInfo.InvariantCulture) / 255f;
 
-        float b = float.Parse(resultsString[2])/ 255f;
+        float b = float.Parse(resultsString[2], CultureInfo.InvariantCulture) / 255f;
 
-        float a = float.Parse(resultsString[3])/ 255f;
+        float a = float.Parse(resultsString[3], CultureInfo.InvariantCulture) / 255f;
 
         Color color = new Color(r,g,b,a);
         return color;
@@ -165,11 +166,11 @@ public class ParameterGroup
         {
             resultsString[0] = resultsString[0].Remove(0, 1);
             resultsString[1] = resultsString[1].Remove(resultsString[1].Length - 1);
-            resultValue = new Vector3(float.Parse(resultsString[0]), float.Parse(resultsString[1]));
+            resultValue = new Vector3(float.Parse(resultsString[0], CultureInfo.InvariantCulture), float.Parse(resultsString[1], CultureInfo.InvariantCulture));
         }
         else
         {
-            resultValue = new Vector3(float.Parse(resultsString[0]), float.Parse(resultsString[0]));
+            resultValue = new Vector3(float.Parse(resultsString[0], CultureInfo.InvariantCulture), float.Parse(resultsString[0], CultureInfo.InvariantCulture));
         }
 
         return resultValue;

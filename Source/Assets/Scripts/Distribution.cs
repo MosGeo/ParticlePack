@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using System.Globalization;
 
 public class Distribution{
 
@@ -86,8 +87,8 @@ public class Distribution{
                 if (textData[i][0] != '-')
                 {
                     string[] splitText = textData[i].Split(',');
-                    readData[i, 0] = float.Parse(splitText[0].Trim());
-                    readData[i, 1] = float.Parse(splitText[1].Trim());
+                    readData[i, 0] = float.Parse(splitText[0].Trim(), CultureInfo.InvariantCulture);
+                    readData[i, 1] = float.Parse(splitText[1].Trim(), CultureInfo.InvariantCulture);
                 }
             }
         }

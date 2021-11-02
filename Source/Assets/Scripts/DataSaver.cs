@@ -10,6 +10,8 @@ public static class DataSaver {
 
         var csv = new System.Text.StringBuilder();
         csv.AppendLine("Name PositionX PositionY PositionZ RotationEu1 RotationEu2 RotationEu3 ScaleX ScaleY ScaleZ Mass Density Volume SurfaceArea");
+        System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+
 
         for (int bedNumber = 0; bedNumber < nBeds; bedNumber++)
         {
