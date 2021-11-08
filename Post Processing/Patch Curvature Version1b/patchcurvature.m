@@ -14,7 +14,7 @@ function [Cmean,Cgaussian,Dir1,Dir2,Lambda1,Lambda2]=patchcurvature(FV,usethird)
 %
 % inputs,
 %   FV : A triangulated mesh (see Patch)
-%   usethird : Use third order neighbour vertices for the curvature
+%   usethird : Use third order neighbour Vertices for the curvature
 %              fit, making it smoother but less local. true/ false (default)
 %
 % outputs,
@@ -31,11 +31,11 @@ function [Cmean,Cgaussian,Dir1,Dir2,Lambda1,Lambda2]=patchcurvature(FV,usethird)
 % %   [Cmean,Cgaussian,Dir1,Dir2,Lambda1,Lambda2]=patchcurvature(FV,true);
 % %
 % %   figure, title('Principal A');
-% %     p1=FV.vertices-2*Dir1; p2=FV.vertices+2*Dir1;       
+% %     p1=FV.Vertices-2*Dir1; p2=FV.Vertices+2*Dir1;       
 % %     plot3([p1(:,1) p2(:,1)]',[p1(:,2) p2(:,2)]',[p1(:,3) p2(:,3)]','g-');
 % %     axis equal; view(3) 
 % %   figure, title('Principal B');
-% %     p1=FV.vertices-2*Dir2; p2=FV.vertices+2*Dir2;       
+% %     p1=FV.Vertices-2*Dir2; p2=FV.Vertices+2*Dir2;       
 % %     plot3([p1(:,1) p2(:,1)]',[p1(:,2) p2(:,2)]',[p1(:,3) p2(:,3)]','r-');
 % %     axis equal; view(3)
 %
@@ -55,11 +55,11 @@ function [Cmean,Cgaussian,Dir1,Dir2,Lambda1,Lambda2]=patchcurvature(FV,usethird)
 %     patch(FV,'FaceColor','interp','FaceVertexCData',C,'edgecolor','none');
 %     axis equal; view(3)
 %   subplot(2,2,3), title('Principal A');
-%     p1=FV.vertices-2*Dir1; p2=FV.vertices+2*Dir1;       
+%     p1=FV.Vertices-2*Dir1; p2=FV.Vertices+2*Dir1;       
 %     plot3([p1(:,1) p2(:,1)]',[p1(:,2) p2(:,2)]',[p1(:,3) p2(:,3)]','g-');
 %     axis equal; view(3) 
 %   subplot(2,2,4), title('Principal B');
-%     p1=FV.vertices-2*Dir2; p2=FV.vertices+2*Dir2;       
+%     p1=FV.Vertices-2*Dir2; p2=FV.Vertices+2*Dir2;       
 %     plot3([p1(:,1) p2(:,1)]',[p1(:,2) p2(:,2)]',[p1(:,3) p2(:,3)]','r-');
 %     axis equal; view(3)
 %     
@@ -70,7 +70,7 @@ function [Cmean,Cgaussian,Dir1,Dir2,Lambda1,Lambda2]=patchcurvature(FV,usethird)
 %
 %   figure, 
 %   hold on
-%   V=FV.vertices;
+%   V=FV.Vertices;
 %   plot3(V(Cgaussian<0,1),V(Cgaussian<0,2),V(Cgaussian<0,3),'r.');
 %   plot3(V(Cgaussian>0,1),V(Cgaussian>0,2),V(Cgaussian>0,3),'b.');
 %   axis equal; view(3)
@@ -81,10 +81,10 @@ function [Cmean,Cgaussian,Dir1,Dir2,Lambda1,Lambda2]=patchcurvature(FV,usethird)
 % Check inputs
 if(nargin<2), usethird=false; end
 
-% Number of vertices
-nv=size(FV.vertices,1);
+% Number of Vertices
+nv=size(FV.Vertices,1);
 
-% Calculate vertices normals
+% Calculate Vertices normals
 N=patchnormals(FV);
 
 % Calculate Rotation matrices for the normals
@@ -94,10 +94,10 @@ for i=1:nv,
     [M(:,:,i),Minv(:,:,i)]=VectorRotationMatrix(N(i,:));
 end
 
-% Get neighbours of all vertices
+% Get neighbours of all Vertices
 Ne=vertex_neighbours(FV);
 
-% Loop through all vertices
+% Loop through all Vertices
 Lambda1=zeros(nv,1);
 Lambda2=zeros(nv,1);
 Dir1=zeros(nv,3);
@@ -112,7 +112,7 @@ for i=1:nv
        Nce=unique([Ne{[Ne{Ne{i}}]}]);
    end
    
-   Ve=FV.vertices(Nce,:);
+   Ve=FV.Vertices(Nce,:);
 
    % Rotate to make normal [-1 0 0]
    We=Ve*Minv(:,:,i);
@@ -184,10 +184,10 @@ end
 function N=patchnormals(FV)
 % This function PATCHNORMALS calculates the normals of a triangulated
 % mesh. PATCHNORMALS calls the patchnormal_double.c mex function which 
-% first calculates the normals of all faces, and after that calculates 
+% first calculates the normals of all Faces, and after that calculates 
 % the vertice normals from the face normals weighted by the angles 
-% of the faces.
-[Nx,Ny,Nz]=patchnormals_double(double(FV.faces(:,1)),double(FV.faces(:,2)),double(FV.faces(:,3)),double(FV.vertices(:,1)),double(FV.vertices(:,2)),double(FV.vertices(:,3)));
+% of the Faces.
+[Nx,Ny,Nz]=patchnormals_double(double(FV.Faces(:,1)),double(FV.Faces(:,2)),double(FV.Faces(:,3)),double(FV.Vertices(:,1)),double(FV.Vertices(:,2)),double(FV.Vertices(:,3)));
 N=zeros(length(Nx),3);
 N(:,1)=Nx; N(:,2)=Ny; N(:,3)=Nz;
 
@@ -198,29 +198,29 @@ function [Nx,Ny,Nz]=patchnormals_double(Fa,Fb,Fc,Vx,Vy,Vz)
 %  [Nx,Ny,Nz]=patchnormals_double(Fa,Fb,Fc,Vx,Vy,Vz)
 %
 
-FV.vertices=zeros(length(Vx),3);
-FV.vertices(:,1)=Vx;
-FV.vertices(:,2)=Vy;
-FV.vertices(:,3)=Vz;
+FV.Vertices=zeros(length(Vx),3);
+FV.Vertices(:,1)=Vx;
+FV.Vertices(:,2)=Vy;
+FV.Vertices(:,3)=Vz;
 
 % Get all edge vectors
-e1=FV.vertices(Fa,:)-FV.vertices(Fb,:);
-e2=FV.vertices(Fb,:)-FV.vertices(Fc,:);
-e3=FV.vertices(Fc,:)-FV.vertices(Fa,:);
+e1=FV.Vertices(Fa,:)-FV.Vertices(Fb,:);
+e2=FV.Vertices(Fb,:)-FV.Vertices(Fc,:);
+e3=FV.Vertices(Fc,:)-FV.Vertices(Fa,:);
 
 % Normalize edge vectors
 e1_norm=e1./repmat(sqrt(e1(:,1).^2+e1(:,2).^2+e1(:,3).^2),1,3); 
 e2_norm=e2./repmat(sqrt(e2(:,1).^2+e2(:,2).^2+e2(:,3).^2),1,3); 
 e3_norm=e3./repmat(sqrt(e3(:,1).^2+e3(:,2).^2+e3(:,3).^2),1,3);
 
-% Calculate Angle of face seen from vertices
+% Calculate Angle of face seen from Vertices
 Angle =  [acos(dot(e1_norm',-e3_norm'));acos(dot(e2_norm',-e1_norm'));acos(dot(e3_norm',-e2_norm'))]';
 
 % Calculate normal of face
  Normal=cross(e1,e3);
 
 % Calculate Vertice Normals 
-VerticeNormals=zeros([size(FV.vertices,1) 3]);
+VerticeNormals=zeros([size(FV.Vertices,1) 3]);
 for i=1:size(Fa,1),
     VerticeNormals(Fa(i),:)=VerticeNormals(Fa(i),:)+Normal(i,:)*Angle(i,1);
     VerticeNormals(Fb(i),:)=VerticeNormals(Fb(i),:)+Normal(i,:)*Angle(i,2);
@@ -251,7 +251,7 @@ function Ne=vertex_neighbours(FV)
 %
 % Ne=vertex_neighbours(FV)
 %
-Ne=vertex_neighbours_double(FV.faces(:,1),FV.faces(:,2),FV.faces(:,3),FV.vertices(:,1),FV.vertices(:,2),FV.vertices(:,3));
+Ne=vertex_neighbours_double(FV.Faces(:,1),FV.Faces(:,2),FV.Faces(:,3),FV.Vertices(:,1),FV.Vertices(:,2),FV.Vertices(:,3));
 
 function Ne=vertex_neighbours_double(Fa,Fb,Fc,Vx,Vy,Vz)
 
@@ -261,7 +261,7 @@ V=[Vx Vy Vz];
 % Neighbourh cell array 
 Ne=cell(1,size(V,1));
 
-% Loop through all faces
+% Loop through all Faces
 for i=1:length(F)
     % Add the neighbors of each vertice of a face
     % to his neighbors list.
@@ -270,7 +270,7 @@ for i=1:length(F)
     Ne{F(i,3)}=[Ne{F(i,3)} [F(i,1) F(i,2)]];
 end
 
-% Loop through all neighbor arrays and sort them (Rotation same as faces)
+% Loop through all neighbor arrays and sort them (Rotation same as Faces)
 for i=1:size(V,1)
  
     Pneighf=Ne{i};
@@ -304,7 +304,7 @@ for i=1:size(V,1)
                     end
                 end
             end
-            if(~found) % This only happens with weird edge vertices
+            if(~found) % This only happens with weird edge Vertices
                 for index=1:2:length(Pneighf),
                     if(sum(Pneig==Pneighf(index))==0)
                         Pneig=[Pneig Pneighf(index)];
