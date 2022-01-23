@@ -134,7 +134,6 @@ classdef Grain < matlab.mixin.SetGet
       end
       % ================================================================= 
       function [sphericity, volume, surfaceArea] = calculateSphericity(obj)
-        obj.Vertices
         FV.Vertices = obj.Vertices;
         FV.Faces = obj.Faces;
         [sphericity, volume, surfaceArea] = sphericityIndex(FV);       

@@ -41,4 +41,5 @@ grain = grainPack.grains(10);
 Vertices = grain.getFV().Vertices;
 Facies   = grain.getFV().Faces;
 [Cmean,Cgaussian,Dir1,Dir2,Lambda1,Lambda2]=patchcurvature(grain.getFV(),true);
+[sphericity, volume, surfaceArea] = grain.calculateSphericity();
 
