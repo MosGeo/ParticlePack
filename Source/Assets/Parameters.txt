@@ -70,15 +70,10 @@ Bed 1 Grain 1 Secondary Color = [198.7241 255 0 0]
 Bed 1 Grain 1 Scale = [1 1 1]
 -----------------------------------------------
 - Deposition Parameters
-Automatic Deposition = True
-Deposition Rate Per Sec = 10
-Save Rock Automatically = False
-Exit Automatically = False
------------------------------------------------
-- Deposition Parameters
 Save Rock Automatically = False
 Save Data File = True
 Save Rock File = True
 Save Grains File = True
+Save Rock Automatically = False
 Exit Automatically = False
 -----------------------------------------------
